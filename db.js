@@ -4,7 +4,7 @@ const MongoURI = 'mongodb://localhost:27017/codetoscore?readPreference=primary&a
 // Function to connect to Database
 const connectToMongo = () => {
     mongoose.connect(MongoURI, () => {
-        console.log('Connected to the mongo database');
+        console.log('Connected to the mongo database.......');
     })
 }
 

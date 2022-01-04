@@ -14,6 +14,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    registrationnumber: {
+        type: String,
+        required: true
+    },
     teamname: {
         type: String,
         required: true,
