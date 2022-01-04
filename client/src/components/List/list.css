@@ -1,0 +1,45 @@
+.list{
+  height: 75px;
+  background-color: #DCDCDC;
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1%;
+}
+
+.action-btn{
+  background: transparent;
+  border: none;
+}
+
+.action-div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action{
+  margin-left: 5px;
+}
+
+@media only screen and (max-width: 650px){
+  .name{
+    font-size: 17px;
+  }
+  .email, .regno{
+    font-size: 15px;
+  }
+  .action{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 450px){
+  .name{
+    font-size: 15px;
+  }
+  .email, .regno{
+    font-size: 12px;
+  }
+}

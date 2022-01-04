@@ -1,0 +1,28 @@
+.buttons-div{
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2% auto 0 auto;
+}
+
+.delete-btn{
+  margin-top: 5px;
+  margin-left: 5%;
+  height: 40px;
+  width: 150px;
+  background-color: rgba(236, 72, 75, 0.54);
+  color: #E5383B;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 15px;
+  outline: none;
+  border: transparent;
+  border-radius: 5px;
+}
+
+.delete-btn:hover{
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #E5383B;
+}

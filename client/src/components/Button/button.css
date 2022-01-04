@@ -1,0 +1,31 @@
+.btn-div{
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+.btn{
+  height: 40px;
+  width: 125px;
+  background-color: var(--dark);
+  color: var(--yellow);
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 15px;
+  outline: none;
+  border: transparent;
+  border-radius: 5px;
+}
+
+.btn:hover{
+  cursor: pointer;
+  background-color: #f5f3f3;
+  color: var(--dark);
+  border: 2px solid var(--dark);
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 1000px){
+  .btn-div{
+    margin-top: 3%;
+  }
+}

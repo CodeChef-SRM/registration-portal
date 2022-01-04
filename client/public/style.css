@@ -1,0 +1,16 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", "sans-serif";
+}
+
+:root {
+  --dark: #17233F;
+  --light: #D4F5F5;
+  --yellow: #E7BB41;
+}
+
+.master{
+  padding: 2% 5%;
+}

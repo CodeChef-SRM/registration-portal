@@ -1,0 +1,31 @@
+.top{
+  display: flex;
+  justify-content: space-between;
+}
+.right, .left{
+  width: 30%;
+}
+.left{
+  display: flex;
+  justify-content: space-between;
+}
+
+.welcome-heading{
+  color: var(--yellow);
+}
+.team-members{
+  color: var(--dark);
+  margin-top: 5%;
+}
+
+.popup{
+  width: 75%;
+  border: 2px solid red;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px){
+  .welcome-heading{
+    text-align: center;
+  }
+}
