@@ -7,11 +7,18 @@ const TeamMemberSchema = new mongoose.Schema({
     },
     registrationnumber: {
         type: String,
-        required: true
+        required: true,
+        unique: true
+    },
+    phone: {
+        type: Number,
+        required: true,
+        unique: true
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     admin: {
         type: Boolean,

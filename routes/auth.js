@@ -5,9 +5,6 @@ const bycrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const fetchUser = require('../middleware/fetchUser');
 
-/*
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFkNDJjMjQ3MzMyZjA3ZDEzZWU3OTY4In0sImlhdCI6MTY0MTI5NDg4NH0.2u9r5PDSKbSiLNj3YhWgKbx0wAp8V1JyCdgXQivLtf8
-*/
 
 // importing models
 const User = require('../models/User');
@@ -22,7 +19,8 @@ router.post('/register', [
     body('name', 'Name length must be greater than 3').isLength({ min: 3 }),
     body('email', 'Enter a valid Email').isEmail(),
     body('password', 'Password length must be more than 6').isLength({ min: 6 }),
-    body('teamname', 'Team name length must be greater than 2').isLength({ min: 2 })
+    body('teamname', 'Team name length must be greater than 2').isLength({ min: 2 }),
+    body('phone', 'Enter a valid phone number').isLength({ min: 10 })
 ], async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -46,6 +44,7 @@ router.post('/register', [
             name: req.body.name,
             email: req.body.email,
             registrationnumber: req.body.registrationnumber,
+            phone: req.body.phone,
             password: secPass,
             teamname: req.body.teamname
         })
@@ -67,6 +66,7 @@ router.post('/register', [
             name: req.body.name,
             registrationnumber: req.body.registrationnumber,
             email: req.body.email,
+            phone: req.body.phone,
             admin: true
         }
 

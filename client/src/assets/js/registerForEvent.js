@@ -1,27 +1,32 @@
 const registerForEvent_InputFieldData = [
   {
-    type:"text",
-    name:"name",
+    type: "text",
+    name: "name",
     placeholder: "Enter your name",
   },
   {
-    type:"text",
-    name:"regno",
+    type: "text",
+    name: "regno",
     placeholder: "Enter your registration number",
   },
   {
-    type:"email",
-    name:"email",
+    type: "email",
+    name: "email",
     placeholder: "Enter your email(SRMIST e-mail ID)",
   },
   {
-    type:"text",
-    name:"teamName",
+    type: "text",
+    name: "teamName",
     placeholder: "Enter your team name",
   },
   {
-    type:"password",
-    name:"password",
+    type: "text",
+    name: "phone no.",
+    placeholder: "Enter your phone number",
+  },
+  {
+    type: "password",
+    name: "password",
     placeholder: "Enter password",
   },
 ]
