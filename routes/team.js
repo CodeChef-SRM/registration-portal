@@ -65,7 +65,7 @@ router.post('/addmember', fetchUser, [
     }
 })
 
-// ROUTE 3 : add member = "/api/team/deletemember/:id" | Requires authentication
+// ROUTE 3 : delete member = "/api/team/deletemember/:id" | Requires authentication
 
 router.delete('/deletemember/:id', fetchUser, async (req, res) => {
     try {
@@ -85,7 +85,7 @@ router.delete('/deletemember/:id', fetchUser, async (req, res) => {
     }
 })
 
-// ROUTE 4 : edit member = "/api/team/editMember/:id" | Requires authentication
+// ROUTE 4 : edit member = "/api/team/editmember/:id" | Requires authentication
 
 router.put('/editmember/:id', fetchUser, async (req, res) => {
     try {
