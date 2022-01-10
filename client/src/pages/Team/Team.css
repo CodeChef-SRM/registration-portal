@@ -1,3 +1,7 @@
+.team-container{
+  padding: 2%;
+}
+
 .top{
   display: flex;
   justify-content: space-between;

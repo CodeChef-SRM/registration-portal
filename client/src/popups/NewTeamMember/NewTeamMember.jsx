@@ -13,7 +13,6 @@ const NewTeamMember = () => {
         <div className="main">
         <div className="top">
           <Heading text="Add Member"/> 
-          <button className='close-btn'><GrClose /></button>
         </div>
         <InputField type="text" name="Name" placeholder="Enter name"/>  
         <InputField type="email" name="email" placeholder="Enter email ID"/>

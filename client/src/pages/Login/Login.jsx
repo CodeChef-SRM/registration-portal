@@ -8,7 +8,7 @@ import "./Login.css"
 
 const Login = () => {
   return (
-    <div className="master">
+    <div className="login-div">
       <div className="container">
         <Heading text="Enter credentials to login"></Heading>
       </div>
