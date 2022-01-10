@@ -6,11 +6,10 @@ import sponsor from "../../assets/img/sponsor.png";
 import FaqList from "../../components/FaqList/FaqList";
 import Footer from "../../components/Footer/Footer";
 import Timeline from "../../components/Timeline/Timeline";
+import faqListData from "../../assets/js/FaqListData"
 import "./LandingPage.css";
 
 function LandingPage() {
-  const que1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla ?"; 
-  const ans1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla."
   return (
     <div className="main-div">
       <Navbar />
@@ -106,13 +105,9 @@ function LandingPage() {
       <div className="faqs">
         <h2 className="section-heading" id="faqs">FAQ's</h2>
         <div className="faqs-list-div">
-          <FaqList que={que1} ans={ans1}/>
-          <FaqList que={que1} ans={ans1}/>
-          <FaqList que={que1} ans={ans1}/>
-          <FaqList que={que1} ans={ans1}/>
+          { faqListData.map( (data, index) => { return <FaqList key={index} que={data.que} ans={data.ans}/> })}
         </div>
       </div>
-
       <Footer />
     </div>
   );
