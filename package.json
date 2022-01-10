@@ -9,6 +9,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "engines": {
+    "node": "16.13.1",
+    "npm": "8.1.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeChef-SRM/registration-portal.git"
