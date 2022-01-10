@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Heading from "../../components/Heading/Heading";
 import Button from "../../components/Button/Button";
 import InputField from "../../components/InputField/InputField";
-import { GrClose } from "react-icons/gr";
 
 
 const EditTeamMember = () => {

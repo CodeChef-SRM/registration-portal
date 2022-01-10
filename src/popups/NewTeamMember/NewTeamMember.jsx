@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GrClose } from "react-icons/gr";
 
 import Heading from "../../components/Heading/Heading";
 import Button from "../../components/Button/Button";

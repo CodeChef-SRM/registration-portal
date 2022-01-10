@@ -15,7 +15,7 @@ function createInputField(inputFieldData) {
 
 const RegisterForEvent = () => {
   return (
-    <div className='registerFor-event-master'>
+    <div className='registerForEvent-master'>
       <Heading text="Register for the event"/>
       <p className='info'>(Only Team Leader should register)</p>
       {registerForEvent_InputFieldData.map(createInputField)}
