@@ -2,9 +2,21 @@
   padding: 2%;
 }
 
+.welcome-navbar-icon{
+  font-size: 25px;
+}
+
+.mob-navbar-toggler-div{
+  display: none;
+}
+.mob-navbar{
+  display: none;
+}
+
 .top{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .team-container-right{
   width: 50%;
@@ -30,8 +42,26 @@
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 760px){
   .welcome-heading{
     text-align: center;
+  }
+  .mob-navbar-toggler-div{
+    display: inline;
+  }
+  .mob-navbar{
+    justify-content: space-evenly;
+  }
+  .team-container-left{
+    display: none;
+  }
+  .team-container-right{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 760px){
+  .team-container-right{
+    font-size: 15px;
   }
 }
