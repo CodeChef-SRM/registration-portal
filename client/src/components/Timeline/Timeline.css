@@ -1,0 +1,21 @@
+.timeline-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 40px 0;
+}
+
+.timeline-container::after{
+    background-color: #17233F;
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    left: calc(50% - 2px);
+}
+
+@media only screen and (max-width: 650px){
+    .timeline-card-heading, .timeline-card-desc{
+        font-size: 15px;
+    }
+}

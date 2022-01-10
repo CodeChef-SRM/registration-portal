@@ -5,6 +5,7 @@ import Card from "../../components/Card/Card";
 import sponsor from "../../assets/img/sponsor.png";
 import FaqList from "../../components/FaqList/FaqList";
 import Footer from "../Footer/Footer";
+import Timeline from "../../components/Timeline/Timeline";
 import "./LandingPage.css";
 
 function LandingPage() {
@@ -54,6 +55,12 @@ function LandingPage() {
             ante posuere.
           </p>
         </div>
+      </div>
+
+      {/* TIMELINE */}
+      <div className="schedule-div">
+        <h2 className="section-heading">Schedule</h2>
+        <Timeline />
       </div>
 
       {/* PRIZES */}
