@@ -10,9 +10,3 @@
   color: black;
   font-weight: 500;
 }
-
-@media only screen and (max-width: 800px){
-  .nav-item{
-    font-size: 14px;
-  }
-}

@@ -9,10 +9,10 @@ const FaqList = (props) => {
   }
   return (
     <div>
-      <div className='list'>
+      <div onClick={showAns} className='list'>
         <h3 className="name">{props.que}</h3>
-        <BsChevronDown style={{display: toggleAns ? "none" : "inline"}} onClick={showAns}/>
-        <BsChevronUp style={{display: toggleAns ? "inline" : "none"}} onClick={showAns}/>
+        <BsChevronDown className="list-icon" style={{display: toggleAns ? "none" : "inline"}}/>
+        <BsChevronUp className="list-icon" style={{display: toggleAns ? "inline" : "none"}}/>
       </div>
       <div className="answer" style={{display: toggleAns ? "block" : "none"}}>{props.ans}</div>
     </div>
