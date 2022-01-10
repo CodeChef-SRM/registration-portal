@@ -3,9 +3,13 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
 import sponsor from "../../assets/img/sponsor.png";
+import FaqList from "../../components/FaqList/FaqList";
+import Footer from "../Footer/Footer";
 import "./LandingPage.css";
 
 function LandingPage() {
+  const que1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla ?"; 
+  const ans1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla."
   return (
     <div className="main-div">
       <Navbar />
@@ -76,7 +80,7 @@ function LandingPage() {
 
       {/* SPONSORS */}
 
-      <div className="sponsors-div"  id="sponsors">
+      <div className="sponsors-div" id="sponsors">
         <h2 className="section-heading">Sponsors</h2>
         <div className="sponsors-top-div">
           <img src={sponsor} alt="sponsor" className="sponsor-icon" />
@@ -90,6 +94,19 @@ function LandingPage() {
         </div>
       </div>
 
+      {/* FAQ's */}
+
+      <div className="faqs" id="faqs">
+        <h2 className="section-heading">FAQ's</h2>
+        <div className="faqs-list-div">
+          <FaqList que={que1} ans={ans1}/>
+          <FaqList que={que1} ans={ans1}/>
+          <FaqList que={que1} ans={ans1}/>
+          <FaqList que={que1} ans={ans1}/>
+        </div>
+      </div>
+
+      <Footer />
     </div>
   );
 }
