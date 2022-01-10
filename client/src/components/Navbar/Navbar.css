@@ -47,7 +47,8 @@ a{
 }
 
 .resp-navbar{
-  margin-top: 40px;
+  z-index: 10;
+  margin-top: 60px;
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -56,6 +57,10 @@ a{
   padding: 10px 2%;
   position: fixed;
   background-color: rgba(255, 255, 255, 0.95);
+}
+
+.d-none{
+  display: none !important;
 }
 
 .navbar-icon{
@@ -79,6 +84,9 @@ a{
 }
 
 @media only screen and (max-width: 800px){
+  .navbar{
+    height: 60px;
+  }
   .navbar-heading{
     font-size: 30px;
   }

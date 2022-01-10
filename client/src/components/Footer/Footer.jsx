@@ -1,5 +1,5 @@
 import React from "react";
-import NavItems from "../../components/NavItems/NavItems";
+import NavItems from "../NavItems/NavItems";
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import "./Footer.css";
 

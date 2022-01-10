@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
 import sponsor from "../../assets/img/sponsor.png";
 import FaqList from "../../components/FaqList/FaqList";
-import Footer from "../Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 import Timeline from "../../components/Timeline/Timeline";
 import "./LandingPage.css";
 
@@ -23,8 +23,8 @@ function LandingPage() {
 
       {/* ABOUT EVENT */}
 
-      <div className="about-event" id="aboutEvent">
-        <h2 className="section-heading">About the Event</h2>
+      <div className="about-event">
+        <h2 className="section-heading" id="aboutEvent">About the Event</h2>
         <div className="aboutEvent-topDiv">
           <p className="about-event-desc">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
@@ -59,13 +59,13 @@ function LandingPage() {
 
       {/* TIMELINE */}
       <div className="schedule-div">
-        <h2 className="section-heading">Schedule</h2>
+        <h2 className="section-heading" id="schedule">Schedule</h2>
         <Timeline />
       </div>
 
       {/* PRIZES */}
-      <div className="prizes" id="prizes">
-        <h2 className="section-heading">Prizes</h2>
+      <div className="prizes">
+        <h2 className="section-heading" id="prizes">Prizes</h2>
         <div className="cards-div">
           <Card
             number="1"
@@ -87,8 +87,8 @@ function LandingPage() {
 
       {/* SPONSORS */}
 
-      <div className="sponsors-div" id="sponsors">
-        <h2 className="section-heading">Sponsors</h2>
+      <div className="sponsors-div">
+        <h2 className="section-heading" id="sponsors">Sponsors</h2>
         <div className="sponsors-top-div">
           <img src={sponsor} alt="sponsor" className="sponsor-icon" />
           <img src={sponsor} alt="sponsor" className="sponsor-icon" />
@@ -103,8 +103,8 @@ function LandingPage() {
 
       {/* FAQ's */}
 
-      <div className="faqs" id="faqs">
-        <h2 className="section-heading">FAQ's</h2>
+      <div className="faqs">
+        <h2 className="section-heading" id="faqs">FAQ's</h2>
         <div className="faqs-list-div">
           <FaqList que={que1} ans={ans1}/>
           <FaqList que={que1} ans={ans1}/>

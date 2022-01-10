@@ -12,6 +12,7 @@ const Navbar = () => {
   function showNavbar () {
     setState(!toggle);
   }
+
   return (
     <>
       <div className='navbar'>
@@ -21,14 +22,14 @@ const Navbar = () => {
         <div className="middle">
           <NavItems link="/home" text="Home"/>
           <NavItems link="#prizes" text="Prizes"/>
-          <NavItems link="/home" text="Schedule"/>
+          <NavItems link="#schedule" text="Schedule"/>
           <NavItems link="#sponsors" text="Sponsors"/>
-          <NavItems link="/home" text="FAQ's"/>
+          <NavItems link="faqs" text="FAQ's"/>
           <NavItems link="#aboutEvent" text="About"/>
         </div>
         <div className="right">
-          <AiOutlineMenu onClick={showNavbar} className='navbar-icon' style= {{display: toggle ? "none" : "inline"}} />
-          <GrClose onClick={showNavbar} className='navbar-icon' style= {{display: toggle ? "inline" : "none"}} />
+          <AiOutlineMenu onClick={showNavbar} className={toggle ? "d-none" : "navbar-icon"} />
+          <GrClose onClick={showNavbar} className={toggle ? "navbar-icon" : "d-none"}/>
           <Link to="/login"><button className="navbar-btn">Login</button></Link>
           <Link to="/registerForEvent"><button  className="navbar-btn">Sign Up</button></Link>
         </div>
@@ -36,7 +37,7 @@ const Navbar = () => {
       <div className="resp-navbar" style= {{display: toggle ? "flex" : "none"}}>
         <NavItems onClick={showNavbar} link="/home" text="Home"/>
         <NavItems onClick={showNavbar} link="#prizes" text="Prizes"/>
-        <NavItems onClick={showNavbar} link="/home" text="Schedule"/>
+        <NavItems onClick={showNavbar} link="#schedule" text="Schedule"/>
         <NavItems onClick={showNavbar} link="#sponsors" text="Sponsors"/>
         <NavItems onClick={showNavbar} link="#faqs" text="FAQ's"/>
         <NavItems onClick={showNavbar} link="#aboutEvent" text="About"/>
