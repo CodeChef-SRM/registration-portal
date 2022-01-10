@@ -4,7 +4,7 @@ import "./heading.css";
 const Heading = (props) => {
   return (
     <div>
-      <h1 className="heading">{props.text}</h1>
+      <h1 className="heading-comp">{props.text}</h1>
     </div>
   )
 }

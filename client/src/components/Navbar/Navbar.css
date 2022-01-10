@@ -25,7 +25,8 @@ a{
 
 .right{
   display: flex;
-  justify-content:space-around;
+  justify-content:space-between;
+  width: 22% !important;
 }
 
 .icon{

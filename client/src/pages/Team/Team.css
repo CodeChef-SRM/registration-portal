@@ -6,16 +6,19 @@
   display: flex;
   justify-content: space-between;
 }
-.right, .left{
-  width: 30%;
-}
-.left{
+.team-container-right{
+  width: 50%;
   display: flex;
+}
+.team-container-left{
+  display: flex;
+  width: 22%;
   justify-content: space-between;
 }
 
 .welcome-heading{
   color: var(--yellow);
+  margin-right: 5px;
 }
 .team-members{
   color: var(--dark);
@@ -24,7 +27,6 @@
 
 .popup{
   width: 75%;
-  border: 2px solid red;
   margin: 0 auto;
 }
 

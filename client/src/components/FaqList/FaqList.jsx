@@ -9,7 +9,7 @@ const FaqList = (props) => {
   }
   return (
     <div>
-      <div onClick={showAns} className='list'>
+      <div onClick={showAns} className={toggleAns ? "list faq-border" : "list"}>
         <h3 className="name">{props.que}</h3>
         <BsChevronDown className="list-icon" style={{display: toggleAns ? "none" : "inline"}}/>
         <BsChevronUp className="list-icon" style={{display: toggleAns ? "inline" : "none"}}/>

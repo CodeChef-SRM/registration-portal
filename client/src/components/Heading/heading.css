@@ -1,5 +1,6 @@
-.heading{
+.heading-comp{
   color: var(--dark);
+  width: 100%;
 }
 
 @media only screen and (max-width: 600px){

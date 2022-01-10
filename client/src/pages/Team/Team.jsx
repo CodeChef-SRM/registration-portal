@@ -9,9 +9,9 @@ import NewTeamMember from "../../popups/NewTeamMember/NewTeamMember";
 import "./Team.css";
 
 
-function createList(listData){
-  return <List name={listData.name} email={listData.email} regno={listData.regno}/>
-}
+// function createList(listData, index){
+//   return <List name={listData.name} email={listData.email} regno={listData.regno}/>
+// }
 
 const Team = () => {
   const [popUp, setState] = useState(false);
@@ -23,17 +23,19 @@ const Team = () => {
   return (
     <div className="team-container">
       <div className="top">
-        <div className="right">
+        <div className="team-container-right">
           <h1 className="welcome-heading">Welcome</h1>
           <Heading text="Team Name"/>
         </div>
-        <div className="left">
+        <div className="team-container-left">
           <Link to="/teamDetails"><Button type="Submit" text="Settings"/></Link>
           <Link to="/home"><Button type="Submit" text="Log Out"/></Link>
         </div>
       </div>
       <h3 className="team-members">Team Members</h3>
-      {welcomePage_data.map(createList)}
+      { welcomePage_data.map((listData, index) => {
+        return <List key={index} name={listData.name} email={listData.email} regno={listData.regno}/>
+      })}
       <Link to="/addMember"><Button onClick={togglePopUp} className="add-member-btn" type="Submit" text="Add Member"/></Link>
 
       {popUp && (
