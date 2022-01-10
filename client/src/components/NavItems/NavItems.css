@@ -1,0 +1,19 @@
+.nav-item{
+  background-color: transparent;
+  border: none;
+  color: #646464;
+  font-size: 17px;
+  cursor: pointer;
+  /* margin: 0 3% 0 3%; */
+}
+
+.nav-item:hover, :focus{
+  color: black;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 800px){
+  .nav-item{
+    font-size: 14px;
+  }
+}
