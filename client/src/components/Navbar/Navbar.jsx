@@ -11,7 +11,6 @@ const Navbar = () => {
   const [toggle, setState] = useState(false);
   function showNavbar () {
     setState(!toggle);
-    console.log(toggle);
   }
   return (
     <>
