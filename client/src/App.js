@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./pages/Login/Login";
-import Page1Default from "./pages/Page1Default/Page1Default";
+import LandingPage from "./pages/LandingPage/LandingPage";
 import RegisterForEvent from "./pages/RegisterForEvent/RegisterForEvent";
 import Team from "./pages/Team/Team";
 import NewTeamMember from "./popups/NewTeamMember/NewTeamMember";
@@ -14,7 +14,7 @@ const App = () => {
       <div>
         <Switch>
           <Route path="/home">
-            <Page1Default />
+            <LandingPage />
           </Route>
           <Route path="/registerForEvent">
             <RegisterForEvent />

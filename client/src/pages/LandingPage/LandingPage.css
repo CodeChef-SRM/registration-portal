@@ -1,0 +1,89 @@
+/* HEADING */
+
+.heading-div {
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+@media only screen and (max-width: 800px) {
+  .heading {
+    font-size: 50px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .heading {
+    font-size: 35px;
+  }
+}
+
+/* ABOUT EVENT */
+
+.about-event, .prizes, .sponsors-div {
+  margin-top: 5%;
+  padding: 1% 4%;
+}
+
+.underline {
+  width: 220px;
+  height: 5px;
+  background-color: #17233f;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.section-heading {
+  margin: auto;
+  width: fit-content;
+  border-bottom: 4px solid #17233f;
+  font-size: 30px;
+}
+
+.about-event-desc {
+  width: 70%;
+  margin: 3% auto;
+  text-align: center;
+}
+
+@media only screen and (max-width: 650px){
+  .about-event-desc{
+    width: 95%;
+  }
+}
+
+/* PRIZES */
+
+.cards-div{
+  margin-top: 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 950px) {
+  .cards-div {
+    flex-direction: column;
+  }
+}
+
+/* SPONSORS */
+
+.sponsors-top-div, .sponsors-bottom-div{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 450px) {
+  .sponsors-top-div, .sponsors-bottom-div{
+    flex-direction: column;
+    margin-top: 0;
+  }
+  .sponsor-icon{
+    margin-top: 25px;
+  }
+}
