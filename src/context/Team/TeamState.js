@@ -4,7 +4,7 @@ import TeamContext from './TeamContext';
 
 const TeamState = (props) => {
 
-    const host = '';
+    const host = 'https://codetoscore-backend.herokuapp.com';
     const [teamMembers, setTeamMembers] = useState([]);
 
     // Fetch all team members

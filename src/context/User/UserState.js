@@ -3,7 +3,7 @@ import UserContext from "./UserContext";
 
 const UserState = (props) => {
 
-    const host = '';
+    const host = 'https://codetoscore-backend.herokuapp.com';
     const [login, setLogin] = useState(false);
     const [userDetails, setUserDetails] = useState({});
 
