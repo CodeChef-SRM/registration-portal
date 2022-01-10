@@ -1,0 +1,30 @@
+.card{
+  height: 325px;
+  width: 275px;
+  padding: 2%;
+  margin-top: 2%;
+  background-color: #EFEFEF;
+  border-radius: 7px;
+}
+
+.rank{
+  font-size: 35px;
+}
+span{
+  font-size: 50px;
+}
+
+.card-text{
+  margin-top: 25px;
+}
+
+.star-icon{
+  margin-top: 25px;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 650px){
+  .card {
+    padding: 2% 5%;
+  }
+}
