@@ -21,13 +21,17 @@
 .team-container-right{
   width: 50%;
   display: flex;
+  align-items: center;
 }
 .team-container-left{
   display: flex;
-  width: 22%;
   justify-content: space-between;
+  width: 42%;
+  align-items: center;
 }
-
+.submit-btn-div{
+  height: 100%;
+}
 .welcome-heading{
   color: var(--yellow);
   margin-right: 5px;
@@ -51,6 +55,7 @@
   }
   .mob-navbar{
     justify-content: space-evenly;
+    align-items: center;
   }
   .team-container-left{
     display: none;
@@ -63,5 +68,40 @@
 @media only screen and (max-width: 760px){
   .team-container-right{
     font-size: 15px;
+  }
+}
+
+/* ADD NEW TEAM MEMBER, EDIT TEAM MEMBER */
+.close-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.top{
+  display: flex;
+  justify-content: space-between;
+}
+.master-div{
+  position: fixed;
+  padding: 2% 0;
+  margin: -2%;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.main{
+  width: 75%;
+  padding: 2%;
+  background-color: #ffffff;
+}
+
+@media only screen and (max-width: 700px){
+  .main{
+    width: 90%;
+    padding: 4%;
   }
 }
