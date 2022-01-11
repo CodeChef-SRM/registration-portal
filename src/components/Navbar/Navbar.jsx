@@ -119,7 +119,7 @@ const Navbar = () => {
 
       <div className={showSignup ? "d-none" : "registerForEvent-master"}>
         <div className="registerForEvent-contianer">
-          <div className="top">
+          <div className="regForm-top">
             <div className="reg-form-right">
               <Heading text="Register for the event" />
               <p className="info">(Only Team Leader should register)</p>
