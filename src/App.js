@@ -1,18 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import LandingPage from "./pages/LandingPage/LandingPage";
-import Team from "./pages/Team/Team";
+
 
 const App = () => {
   return (
     <Router>
       <div>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <LandingPage />
           </Route>
-          <Route path="/dashboard">
-            <Team />
+          <Route exact path="/dashboard">
+            <Dashboard />
           </Route>
         </Switch>
       </div>

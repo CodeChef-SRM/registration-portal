@@ -1,0 +1,153 @@
+/* BASE CLASSES */
+* {
+  margin: 0;
+  padding: 0;
+}
+.display__flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex__flow__down {
+  flex-direction: column;
+}
+.display__flex__start {
+  align-items: flex-start;
+}
+.display__flex__end {
+  align-items: flex-end;
+}
+.flex__space__between {
+  justify-content: space-between;
+}
+.flex__space__around {
+  justify-content: space-around;
+}
+.button__primary {
+  background: #17233f;
+  padding: 10px 20px;
+  color: #e7bb41;
+  border: 2px solid #17233f;
+  cursor: pointer;
+}
+.button__primary i {
+  margin-right: 10px;
+}
+.button__primary:hover {
+  background: #1e2d50;
+}
+.button__primary:disabled {
+  background: #ededed;
+  cursor: no-drop;
+}
+
+/*DESIGN CLASSES*/
+.dashboard__master {
+  width: 95%;
+  min-height: 100vh;
+  padding: 2.5%;
+}
+.header__button {
+  margin-left: 10px;
+  border-radius: 5px;
+}
+.main__dashboard {
+  margin: 20px 0;
+}
+#warning {
+  color: #b1b1b1;
+  font-size: 10px;
+}
+
+/*Add member popup*/
+.add__member__button {
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.add__member__modal,
+.settings__popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+}
+.add__mem__modal__cont,
+.settings__body {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  max-width: 740px;
+  max-height: 540px;
+  padding: 30px;
+}
+.settings__button {
+  margin-right: 10px !important;
+}
+
+/*Member BAR*/
+.team__member__bar {
+  padding: 15px 20px;
+  background: #ededed;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 800px;
+}
+.tm__details p {
+  margin-left: 10px;
+}
+.edit__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+}
+.edit__modal__cont {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  max-width: 740px;
+  max-height: 540px;
+  padding: 30px;
+}
+.edit__header {
+  margin-bottom: 10%;
+}
+.edit__button {
+  margin: 5px 0;
+  border-radius: 5px;
+  margin-top: 10%;
+}
+.edit__input {
+  padding: 15px 20px;
+  margin: 5px 0;
+  border-bottom: #ededed;
+  border-radius: 5px;
+}
+.edit__input:focus {
+  outline: none;
+  border-bottom: #17233f;
+}
+.bar__button {
+  padding: 10px;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.bar__button:hover {
+  background: #d8d7d7;
+}
+.bar__button i {
+  margin-right: 5px;
+}
+.close__button {
+  font-size: 25px;
+  background: none;
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
