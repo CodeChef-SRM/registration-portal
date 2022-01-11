@@ -84,7 +84,7 @@ a{
   }
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 900px){
   .navbar{
     height: 60px;
   }
@@ -102,5 +102,90 @@ a{
   .navbar-btn{
     width: 75px;
     font-size: 12px;
+  }
+}
+
+/* LOGIN POPUP */
+
+.login-master-div{
+  padding: 10%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  z-index: 25;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+.login-div{
+  padding: 2%;
+  height: 50vh;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.close-icon{
+  font-size: 25px;
+  margin-left: auto;
+}
+
+.d-none{
+  display: none;
+}
+
+@media only screen and (max-width: 700px){
+  .login-master-div{
+    padding: 2%;
+  }
+  .login-div{
+    width: 100%;
+  }
+}
+
+/* REGISTER FORM */
+.registerForEvent-master{
+  padding: 2% 3%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 250;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: auto;
+  width: 100%;
+  height: 100vh;
+}
+.registerForEvent-contianer{
+  padding: 2%;
+  background-color: #ffffff;
+  height: 90%;
+  width: 90%;
+}
+.info{
+  font-size: 12px;
+  color: var(--dark);
+  font-weight: 500;
+  margin: 0.5% 0 2% 0;
+  margin-left: 7px;
+}
+
+@media only screen and (max-width: 600px){
+  .info{
+    text-align: center;
+  }
+  .registerForEvent-contianer{
+    height: 75%;
+    width: 95%;
   }
 }

@@ -4,13 +4,14 @@
 }
 
 @media only screen and (max-width: 600px){
-  .heading{
+  .heading-comp{
     text-align: center;
+    font-size: 25px;
   }
 }
 
 @media only screen and (max-width: 350px){
-  .heading{
+  .heading-comp{
     font-size: 25px;
   }
 }

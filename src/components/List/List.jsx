@@ -9,10 +9,10 @@ const List = (props) => {
       <h3 className="name">{props.name}</h3>
       <p className="email">{props.email}</p>
       <p className="regno">{props.regno}</p>
-      <Link to="/editTeamMember"><button className='action-btn'><div className="action-div">
+      <button  onClick={props.onclick} className='action-btn'><div className="action-div">
         <FiEdit />
         <p className="action">Edit</p>
-      </div></button></Link>
+      </div></button>
       <button className='action-btn'><div className="action-div">
         <FiDelete />
         <p className="action">Delete</p>
