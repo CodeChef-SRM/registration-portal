@@ -109,7 +109,7 @@ const Navbar = () => {
             name="password"
             placeholder="Enter Password"
           />
-          <Link to="/team">
+          <Link to="/dashboard">
             <Button type="" text="Login" />
           </Link>
         </div>
