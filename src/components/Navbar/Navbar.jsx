@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import NavItems from "../NavItems/NavItems";
@@ -30,16 +30,6 @@ const Navbar = () => {
     toggleShowSignup();
   }
 
-  function createInputField(inputFieldData, index) {
-    return (
-      <InputField
-        key={index}
-        type={inputFieldData.type}
-        name={inputFieldData.name}
-        placeholder={inputFieldData.placeholder}
-      />
-    );
-  }
   const [showSignup, setSignup] = useState(true);
   function toggleShowSignup() {
     setSignup(!showSignup);
@@ -143,7 +133,11 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
       console.log("something went wrong");
     }
   };
-
+  useEffect(() => {
+    if (password == confirmPassword) {
+      setUnmatch(false);
+    }
+  }, []);
   return (
     <div className={showSignup ? "d-none" : "registerForEvent-master"}>
       <div className="registerForEvent-contianer">
@@ -205,13 +199,13 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
             onChange={(e) => {
               setConfirmPassword(e.target.value);
               if (password != e.target.value) {
-                setUnmatch(false);
-              } else {
                 setUnmatch(true);
+              } else {
+                setUnmatch(false);
               }
             }}
           ></input>
-          {!unmatch ? (
+          {unmatch ? (
             <p style={{ color: "red", fontSize: "12px" }}>
               Passwords don't match
             </p>

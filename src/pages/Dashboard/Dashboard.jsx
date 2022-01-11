@@ -42,8 +42,8 @@ const HeaderComp = ({ signOut, teamDetails }) => {
   return (
     <div className="header display__flex flex__space__between">
       <div>
-        <h1>Welcome,</h1>
-        <h1>{teamDetails.teamname}</h1>
+        <h1 id="welcome__text">Welcome,</h1>
+        <h1 id="team__text">{teamDetails.teamname}</h1>
       </div>
       <div className="header__button__cont">
         <button
@@ -120,6 +120,13 @@ const MainDash = ({ teamMembers, addMember }) => {
   return (
     <div className="main__dashboard">
       <h2>Team Members ({teamMembers.length})</h2>
+      {teamMembers.length < 2 ? (
+        <h3 style={{ color: "#b1b1b1" }}>
+          You need atleast one more member in your team in order to participate
+        </h3>
+      ) : (
+        ""
+      )}
       <div className="team__members display__flex flex__flow__down display__flex__start">
         {teamMembers.map((member) => {
           return <TeamMemberBar details={member} />;

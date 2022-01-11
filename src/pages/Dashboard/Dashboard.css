@@ -58,6 +58,12 @@
   color: #b1b1b1;
   font-size: 10px;
 }
+#welcome__text {
+  color: #17233f;
+}
+#team__text {
+  color: #e7bb41;
+}
 
 /*Add member popup*/
 .add__member__button {
@@ -158,8 +164,12 @@
   }
 }
 @media only screen and (max-width: 640px) {
+  .team__member__bar {
+    flex-direction: row;
+  }
   .tm__details {
     flex-direction: column;
+    align-items: flex-start;
   }
   .header {
     flex-direction: column;
@@ -168,5 +178,8 @@
   .header__button {
     margin: 0;
     margin-right: 5px;
+  }
+  .tm__funcs {
+    flex-direction: column;
   }
 }
