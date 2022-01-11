@@ -8,10 +8,10 @@ const App = () => {
     <Router>
       <div>
         <Switch>
-          <Route path="/home">
+          <Route path="/">
             <LandingPage />
           </Route>
-          <Route path="/team">
+          <Route path="/dashboard">
             <Team />
           </Route>
         </Switch>
