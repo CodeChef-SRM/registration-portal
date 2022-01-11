@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import TeamContext from "../../../context/Team/TeamContext";
 
 const TeamMemberBar = ({ details }) => {
   const [edit, setEdit] = useState(false);
+
   // edit section states
   const [name, setName] = useState(details.name);
   const [email, setEmail] = useState(details.email);
@@ -10,7 +12,19 @@ const TeamMemberBar = ({ details }) => {
   );
   const [phone, setPhone] = useState(details.phone);
   // -------------------
-  const deleteMember = () => {};
+
+  //contexts
+  const teamContext = useContext(TeamContext);
+
+  const { editMember, deleteMember } = teamContext;
+
+  const deleteMemberFunc = () => {
+    deleteMember(details._id);
+  };
+  const editMemberFunc = () => {
+    editMember(details._id, name, registrationNumber, email, phone);
+    setEdit(false);
+  };
   return (
     <div
       className="team__member__bar display__flex flex__space__between"
@@ -27,7 +41,7 @@ const TeamMemberBar = ({ details }) => {
           <i class="bi bi-pencil-square"></i>Edit
         </button>
         {!details.admin ? (
-          <button onClick={() => deleteMember()} className="bar__button">
+          <button onClick={() => deleteMemberFunc()} className="bar__button">
             <i class="bi bi-trash"></i>Delete
           </button>
         ) : (
@@ -43,13 +57,19 @@ const TeamMemberBar = ({ details }) => {
               <h2>Edit {details.name}</h2>
               <button
                 className="close__button display__flex"
-                onClick={() => setEdit(false)}
+                onClick={() => {
+                  setEdit(false);
+                  setName(details.name);
+                  setEmail(details.email);
+                  setRegistrationNumber(details.registrationnumber);
+                  setPhone(details.phone);
+                }}
               >
                 <i class="bi bi-x-lg"></i>
               </button>
             </div>
             <input
-              placeholder="Enter Name"
+              placeholder="Enter CodeChef ID"
               className="edit__input"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -72,7 +92,12 @@ const TeamMemberBar = ({ details }) => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             ></input>
-            <button className="edit__button button__primary">Save</button>
+            <button
+              className="edit__button button__primary"
+              onClick={() => editMemberFunc()}
+            >
+              Save
+            </button>
           </div>
         </div>
       ) : (

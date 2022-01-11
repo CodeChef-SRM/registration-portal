@@ -1,68 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import TeamContext from "../../context/Team/TeamContext";
 import "./Dashboard.css";
 import TeamMemberBar from "./TeamMemberBar/TeamMemberBar";
 
-const teammembers = [
-  {
-    name: "Name 1",
-    registrationnumber: "RA2011026010023",
-    phone: 5748789765,
-    email: "aw3423@srmist.edu.in",
-    admin: true,
-    _id: "61dc691f02425fdcb2d0ce0f",
-  },
-  {
-    name: "Name 2",
-    registrationnumber: "RA2011026010024",
-    phone: 5748789766,
-    email: "aw3424@srmist.edu.in",
-    admin: false,
-    _id: "61dc691f02425fdcb2d0ce0g",
-  },
-  {
-    name: "Name 3",
-    registrationnumber: "RA2011026010025",
-    phone: 5748789767,
-    email: "aw3425@srmist.edu.in",
-    admin: false,
-    _id: "61dc691f02425fdcb2d0ce0h",
-  },
-  {
-    name: "Name 4",
-    registrationnumber: "RA2011026010026",
-    phone: 5748789768,
-    email: "aw3426@srmist.edu.in",
-    admin: false,
-    _id: "61dc691f02425fdcb2d0ce0i",
-  },
-];
-
 const Dashboard = () => {
-  const signOut = () => {};
+  const history = useHistory();
+
+  const signOut = () => {
+    localStorage.removeItem("authTokenRegCCSC");
+    history.push("/");
+  };
+
+  const teamContext = useContext(TeamContext);
+
+  const { teamDetails, teamMembers, getTeam, addMember } = teamContext;
+
+  const grabData = async () => {
+    if (localStorage.getItem("authTokenRegCCSC")) {
+      getTeam();
+    } else {
+      history.push("/");
+    }
+  };
+
+  useEffect(() => {
+    grabData();
+  }, []);
 
   return (
     <div className="dashboard__master">
-      <HeaderComp signOut={signOut} />
-      <h1>Team Name</h1>
-      <MainDash />
+      <HeaderComp signOut={signOut} teamDetails={teamDetails} />
+      <MainDash teamMembers={teamMembers} addMember={addMember} />
     </div>
   );
 };
 
-const HeaderComp = ({ signOut }) => {
-  const [settings, setSettings] = useState(true);
+const HeaderComp = ({ signOut, teamDetails }) => {
+  const [settings, setSettings] = useState(false);
   return (
     <div className="header display__flex flex__space__between">
       <div>
         <h1>Welcome,</h1>
+        <h1>{teamDetails.teamname}</h1>
       </div>
       <div className="header__button__cont">
-        <Link to="/" onClick={() => signOut()}>
-          <button className="header__button button__primary">
-            <i class="bi bi-box-arrow-left"></i>Sign Out
-          </button>
-        </Link>
+        <button
+          className="header__button button__primary"
+          onClick={() => signOut()}
+        >
+          <i class="bi bi-box-arrow-left"></i>Sign Out
+        </button>
         <button
           className="header__button button__primary"
           onClick={() => setSettings(true)}
@@ -115,39 +104,42 @@ const HeaderComp = ({ signOut }) => {
   );
 };
 
-const MainDash = () => {
-  const [addMember, setAddMember] = useState(false);
-
-  const excuteAddMember = () => {};
+const MainDash = ({ teamMembers, addMember }) => {
+  const [addMemberPopUp, setAddMemberPopUp] = useState(false);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [phone, setPhone] = useState("");
 
+  const excuteAddMember = () => {
+    addMember(name, registrationNumber, email, phone);
+    setAddMemberPopUp(false);
+  };
+
   return (
     <div className="main__dashboard">
-      <h2>Team Members ({teammembers.length})</h2>
+      <h2>Team Members ({teamMembers.length})</h2>
       <div className="team__members display__flex flex__flow__down display__flex__start">
-        {teammembers.map((member) => {
+        {teamMembers.map((member) => {
           return <TeamMemberBar details={member} />;
         })}
       </div>
       {/*Add Member modal*/}
-      {addMember ? (
+      {addMemberPopUp ? (
         <div className="add__member__modal display__flex">
           <div className="add__mem__modal__cont">
             <div className="edit__header display__flex flex__space__between">
               <h1>Add Member</h1>
               <button
                 className="close__button display__flex"
-                onClick={() => setAddMember(false)}
+                onClick={() => setAddMemberPopUp(false)}
               >
                 <i class="bi bi-x-lg"></i>
               </button>
             </div>
             <input
-              placeholder="Enter Name"
+              placeholder="Enter CodeChef ID"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="edit__input"
@@ -183,8 +175,8 @@ const MainDash = () => {
       )}
       <button
         className="button__primary add__member__button"
-        onClick={() => setAddMember(true)}
-        disabled={teammembers.length === 4 ? "disabled" : ""}
+        onClick={() => setAddMemberPopUp(true)}
+        disabled={teamMembers.length === 4 ? "disabled" : ""}
       >
         <i class="bi bi-person-plus"></i>Add member
       </button>

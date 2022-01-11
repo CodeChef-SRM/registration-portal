@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import NavItems from "../NavItems/NavItems";
 import { GrClose } from "react-icons/gr";
 import { AiOutlineMenu } from "react-icons/ai";
 import InputField from "../../components/InputField/InputField";
-import Button from "../../components/Button/Button";
 import Heading from "../../components/Heading/Heading";
-import registerForEvent_InputFieldData from "../../assets/js/registerForEvent";
 
 import "./Navbar.css";
+import { useHistory } from "react-router-dom";
+import TeamContext from "../../context/Team/TeamContext";
 
 const Navbar = () => {
   const [toggle, setState] = useState(false);
@@ -93,46 +93,202 @@ const Navbar = () => {
       </div>
 
       {/* LOGIN POPUP */}
-      <div className={showLogin ? "d-none" : "login-master-div"}>
-        <div className="login-div">
-          <div className="container">
-            <Heading text="Enter credentials to login"></Heading>
-            <GrClose onClick={toggleShowLogin} className="close-icon" />
-          </div>
-          <InputField
-            type="text"
-            name="username"
-            placeholder="Enter team name"
-          />
-          <InputField
-            type="password"
-            name="password"
-            placeholder="Enter Password"
-          />
-          <Link to="/dashboard">
-            <Button type="" text="Login" />
-          </Link>
-        </div>
-      </div>
+      <LoginPopup showLogin={showLogin} toggleShowLogin={toggleShowLogin} />
 
       {/* SIGN UP */}
 
-      <div className={showSignup ? "d-none" : "registerForEvent-master"}>
-        <div className="registerForEvent-contianer">
-          <div className="regForm-top">
-            <div className="reg-form-right">
-              <Heading text="Register for the event" />
-              <p className="info">(Only Team Leader should register)</p>
-            </div>
-            <GrClose onClick={toggleShowSignup} className="close-icon" />
-          </div>
-          {registerForEvent_InputFieldData.map(createInputField)}
-          <Link to="/home">
-            <Button onclick={toggleShowSignup} type="submit" text="Submit" />
-          </Link>
-        </div>
-      </div>
+      <RegisterPopup
+        showSignup={showSignup}
+        toggleShowSignup={toggleShowSignup}
+        setLogin={setLogin}
+      />
     </>
   );
 };
+
+const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [teamname, setTeamname] = useState("");
+  const [phone, setPhone] = useState("");
+  const [registrationnumber, setRegisternumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [unmatch, setUnmatch] = useState(false);
+
+  const history = useHistory();
+
+  const handleRegister = async () => {
+    const response = await fetch(`http://localhost:8000/api/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        registrationnumber,
+        teamname,
+        phone,
+      }),
+    });
+    const json = await response.json();
+    console.log(json);
+    if (json.authToken) {
+      localStorage.setItem("authTokenRegCCSC", json.authToken);
+      history.push("/dashboard");
+    } else {
+      console.log("something went wrong");
+    }
+  };
+
+  return (
+    <div className={showSignup ? "d-none" : "registerForEvent-master"}>
+      <div className="registerForEvent-contianer">
+        <div className="regForm-top">
+          <div className="reg-form-right">
+            <Heading text="Register for the event" />
+            <p className="info">(Only Team Leader should register)</p>
+          </div>
+          <GrClose onClick={toggleShowSignup} className="close-icon" />
+        </div>
+        <div>
+          <input
+            className="edit__input"
+            placeholder="Enter your Codechef ID"
+            type={"text"}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter your E mail (srmist.edu.in)"
+            type={"email"}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter your Team Name"
+            type={"text"}
+            value={teamname}
+            onChange={(e) => setTeamname(e.target.value)}
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter your Phone No."
+            type={"number"}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter your Registeration No. (RA.............)"
+            type={"text"}
+            value={registrationnumber}
+            onChange={(e) => setRegisternumber(e.target.value)}
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter Password"
+            type={"password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Confirm Password"
+            type={"password"}
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+              if (password != e.target.value) {
+                setUnmatch(false);
+              } else {
+                setUnmatch(true);
+              }
+            }}
+          ></input>
+          {!unmatch ? (
+            <p style={{ color: "red", fontSize: "12px" }}>
+              Passwords don't match
+            </p>
+          ) : (
+            ""
+          )}
+        </div>
+        <button
+          className="button__primary"
+          style={{ width: "100px", borderRadius: "5px" }}
+          onClick={() => handleRegister()}
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const LoginPopup = ({ showLogin, toggleShowLogin }) => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const history = useHistory();
+
+  const handleLogin = async () => {
+    const response = await fetch(
+      `https://codetoscore-backend.herokuapp.com/api/auth/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    );
+    const json = await response.json();
+    console.log(json);
+    if (json.authToken) {
+      localStorage.setItem("authTokenRegCCSC", json.authToken);
+      toggleShowLogin(true);
+      history.push("/dashboard");
+    } else {
+      toggleShowLogin(false);
+    }
+  };
+  return (
+    <div className={showLogin ? "d-none" : "login-master-div"}>
+      <div className="login-div">
+        <div className="container">
+          <Heading text="Enter credentials to login"></Heading>
+          <GrClose onClick={toggleShowLogin} className="close-icon" />
+        </div>
+        <input
+          className="inputField-div"
+          placeholder="Enter your E mail (srmist.edu.in)"
+          type={"email"}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        ></input>
+        <input
+          className="inputField-div"
+          placeholder="Enter your Password"
+          type={"password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        ></input>
+        <button
+          className="button__primary"
+          style={{ borderRadius: "5px", marginTop: "10px" }}
+          onClick={() => handleLogin()}
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export default Navbar;
