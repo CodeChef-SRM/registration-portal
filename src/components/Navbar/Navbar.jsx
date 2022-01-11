@@ -52,7 +52,7 @@ const Navbar = () => {
           <NavItems link="#prizes" text="Prizes"/>
           <NavItems link="#schedule" text="Schedule"/>
           <NavItems link="#sponsors" text="Sponsors"/>
-          <NavItems link="faqs" text="FAQ's"/>
+          <NavItems link="#faqs" text="FAQ's"/>
           <NavItems link="#aboutEvent" text="About"/>
         </div>
         <div className="right">
