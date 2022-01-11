@@ -7,9 +7,11 @@ import FaqList from "../../components/FaqList/FaqList";
 import Footer from "../../components/Footer/Footer";
 import Timeline from "../../components/Timeline/Timeline";
 import faqListData from "../../assets/js/FaqListData"
+
 import "./LandingPage.css";
 
 function LandingPage() {
+
   return (
     <div className="main-div">
       <Navbar />
