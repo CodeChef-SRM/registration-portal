@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FiEdit, FiDelete } from "react-icons/fi";
 import "./list.css";
 

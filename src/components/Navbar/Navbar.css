@@ -119,20 +119,30 @@ a{
 }
 .login-div{
   padding: 2%;
-  height: 50vh;
+  height: 55vh;
   width: 75%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: start;
   background-color: #ffffff;
+  border-radius: 5px;
 }
 
 .container{
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 25px;
+}
+
+.input-divs{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .close-icon{
@@ -144,12 +154,36 @@ a{
   display: none;
 }
 
+@media only screen and (max-width: 1200px){
+  .login-div{
+    height: 45vh;
+  }
+}
+
+@media only screen and (max-width: 1000px){
+  .login-div{
+    height: 40vh;
+  }
+}
+
 @media only screen and (max-width: 700px){
+  .login-master-div{
+    padding: 2%;
+    align-items: center;
+  }
+  .login-div{
+    width: 100%;
+    height: 45vh;
+  }
+}
+@media only screen and (max-width: 550px){
   .login-master-div{
     padding: 2%;
   }
   .login-div{
+    padding: 0 5%;
     width: 100%;
+    height: 40vh;
   }
 }
 
@@ -162,16 +196,26 @@ a{
   justify-content: center;
   align-items: center;
   position: fixed;
-  height: auto;
   width: 100%;
   height: 100vh;
 }
 .registerForEvent-contianer{
   padding: 2%;
   background-color: #ffffff;
-  height: 90%;
   width: 90%;
+  height: 95vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.regForm-top{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
 .info{
   font-size: 12px;
   color: var(--dark);
@@ -181,11 +225,9 @@ a{
 }
 
 @media only screen and (max-width: 600px){
-  .info{
-    text-align: center;
-  }
   .registerForEvent-contianer{
-    height: 75%;
-    width: 95%;
+    padding: 15px;
+    height: 70%;
+    width: 100%;
   }
 }

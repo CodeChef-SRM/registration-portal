@@ -1,10 +1,11 @@
 .inputField-div{
-  width: 35%;
-  margin: 0% auto;
+  width: 75%;
+  /* margin-top: 1%; */
+  margin-bottom: 1%;
 }
 
 input{
-  padding: 5%;
+  padding: 3%;
   height: 45px;
   width: 100%;
   font-size: 15px;
@@ -15,23 +16,12 @@ input{
   outline: none;
 }
 
-.inputField{
-  margin-top: 5%;
-}
 .inputField:focus{
   border-bottom: 3px solid var(--dark);
 }
 
-@media only screen and (max-width: 975px){
-  .inputField-div{
-    width: 50%;
-    margin: 0% auto;
-  }
-}
-
 @media only screen and (max-width: 600px){
   .inputField-div{
-    width: 90%;
-    margin: 0% auto;
+    width: 100%;
   }
 }

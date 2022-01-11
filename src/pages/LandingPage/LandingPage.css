@@ -46,9 +46,10 @@
 }
 
 .about-event-desc {
-  width: 70%;
+  width: 85%;
   margin: 3% auto;
   text-align: center;
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 650px){
@@ -62,7 +63,7 @@
 .cards-div{
   margin-top: 4%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -77,7 +78,7 @@
 .sponsors-top-div, .sponsors-bottom-div{
   margin-top: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
