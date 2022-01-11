@@ -33,7 +33,9 @@ const Navbar = () => {
   }
 
   function createInputField(inputFieldData, index) {
-    return <InputField key={index} type={inputFieldData.type} name={inputFieldData.name} placeholder={inputFieldData.placeholder} />
+    return(    
+      <InputField key={index} type={inputFieldData.type} name={inputFieldData.name} placeholder={inputFieldData.placeholder} />
+    ); 
   }
   const [showSignup, setSignup] = useState(true);
   function toggleShowSignup() {
@@ -77,12 +79,14 @@ const Navbar = () => {
       <div className={showLogin ? "d-none" : "login-master-div"}>
       <div className="login-div">
         <div className="container">
-          <Heading text="Enter credentials to login"></Heading>
+          <Heading text="Log In"></Heading>
           <GrClose onClick={toggleShowLogin} className='close-icon'/>
         </div>
-        <InputField type="text" name="username" placeholder="Enter team name"/>
-        <InputField type="password" name="password" placeholder="Enter Password"/>
-        <Link to="/team"><Button type="" text="Login"/></Link>
+        <div className="input-divs">
+          <InputField type="text" name="username" placeholder="Enter team name"/>
+          <InputField type="password" name="password" placeholder="Enter Password"/>
+          <Link to="/team"><Button type="" text="Login"/></Link>
+        </div>
       </div>
     </div>
 
@@ -90,7 +94,7 @@ const Navbar = () => {
 
     <div className={showSignup ? "d-none" : "registerForEvent-master"}>
       <div className="registerForEvent-contianer">
-        <div className="top">
+        <div className="regForm-top">
           <div className="reg-form-right">
             <Heading text="Register for the event"/>
             <p className='info'>(Only Team Leader should register)</p>

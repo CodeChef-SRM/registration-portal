@@ -1,7 +1,8 @@
 .btn-div{
   width: fit-content;
-  margin: 0 auto;
-  margin-top: 2%;
+  /* margin: 0 auto; */
+  margin: 2% 0;
+  margin-top: 5%;
 }
 .btn{
   height: 40px;
