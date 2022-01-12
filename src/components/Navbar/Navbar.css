@@ -119,7 +119,7 @@ a{
 }
 .login-div{
   padding: 2%;
-  height: 55vh;
+  height: 45vh;
   width: 75%;
   display: flex;
   flex-direction: column;
@@ -162,6 +162,7 @@ a{
 
 @media only screen and (max-width: 1000px){
   .login-div{
+    padding: 4%;
     height: 40vh;
   }
 }
@@ -173,7 +174,7 @@ a{
   }
   .login-div{
     width: 100%;
-    height: 45vh;
+    height: 40vh;
   }
 }
 @media only screen and (max-width: 550px){
