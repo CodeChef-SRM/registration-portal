@@ -7,19 +7,23 @@ const TeamState = (props) => {
     const host = 'https://codetoscore-backend.herokuapp.com';
     const [teamMembers, setTeamMembers] = useState([]);
 
+    const [teamDetails, setTeamDetails] = useState([]);
+
     // Fetch all team members
     const getTeam = async () => {
-        const response = await fetch(`${host}/api/team/getuser`, {
+        const response = await fetch(`${host}/api/team/getteam`, {
             method: 'POST',
             headers: {
+                // replace with localStorage.getItem('authTokenRegCCSC')
                 'auth-token': localStorage.getItem('authTokenRegCCSC')
             }
         })
         const json = await response.json();
-        console.log(json);
+        console.log(json[0].teammembers);
 
         if (json) {
-            setTeamMembers(json);
+            setTeamMembers(json[0].teammembers);
+            setTeamDetails(json[0]);
         } else {
             setTeamMembers([]);
         }
@@ -33,7 +37,7 @@ const TeamState = (props) => {
                 'Content-type': 'application/json',
                 'auth-token': localStorage.getItem('authTokenRegCCSC')
             },
-            body: JSON.stringify.json({ name, registrationnumber, email, phone })
+            body: JSON.stringify({ name, registrationnumber, email, phone })
         })
         const json = await response.json();
         console.log(json);
@@ -51,7 +55,7 @@ const TeamState = (props) => {
                 'Content-type': 'application/json',
                 'auth-token': localStorage.getItem('authTokenRegCCSC')
             },
-            body: JSON.stringify.json({ name, registrationnumber, email, phone })
+            body: JSON.stringify({ name, registrationnumber, email, phone })
         })
         const json = await response.json();
         console.log(json);
@@ -62,7 +66,7 @@ const TeamState = (props) => {
 
     // Deleting the Member
     const deleteMember = async (id) => {
-        const response = await fetch(`${host}/api/team/editmember/${id}`, {
+        const response = await fetch(`${host}/api/team/deletemember/${id}`, {
             method: 'DELETE',
             headers: {
                 'auth-token': localStorage.getItem('authTokenRegCCSC')
@@ -76,9 +80,11 @@ const TeamState = (props) => {
     }
 
     return (
-        <TeamContext.Provider value={{ teamMembers, setTeamMembers, getTeam, addMember, editMember, deleteMember }}>
+        <TeamContext.Provider value={{ teamMembers, setTeamMembers, getTeam, addMember, editMember, deleteMember, teamDetails }}>
             {props.children}
         </TeamContext.Provider>
     )
 
 }
+
+export default TeamState

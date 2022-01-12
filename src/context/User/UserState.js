@@ -8,13 +8,13 @@ const UserState = (props) => {
     const [userDetails, setUserDetails] = useState({});
 
     // Register
-    const Register = async (name, email, password, teamname, phone) => {
-        const response = await fetch(`${host}/api/auth/login`, {
+    const Register = async (name, email, registerationnumber, password, teamname, phone) => {
+        const response = await fetch(`${host}/api/auth/register`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify({ name, email, password, teamname, phone })
+            body: JSON.stringify({ name, email, registerationnumber, password, teamname, phone })
         })
         const json = await response.json();
         console.log(json);
@@ -51,8 +51,7 @@ const UserState = (props) => {
             method: 'POST',
             headers: {
                 'auth-token': localStorage.getItem('authTokenRegCCSC')
-            },
-            body: JSON.stringify({ email, password })
+            }
         })
         const json = await response.json();
         console.log(json);
