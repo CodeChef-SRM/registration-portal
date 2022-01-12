@@ -7,9 +7,9 @@
   justify-content: center;
   align-items: center;
   font-size: 50px;
-  background: url("../../assets/img/bg2.png");
+  background: url("../../assets/img/bg.png");
   background-size: contain;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (max-width: 675px) {
@@ -65,6 +65,13 @@
 @media only screen and (max-width: 650px){
   .about-event-desc{
     width: 95%;
+  }
+}
+@media only screen and (max-width: 600px){
+  .heading-div{
+    background: url("../../assets/img/bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }
 
