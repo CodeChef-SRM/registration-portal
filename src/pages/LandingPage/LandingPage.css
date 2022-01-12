@@ -9,12 +9,22 @@
   font-size: 50px;
   background: url("../../assets/img/bg2.png");
   background-size: contain;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 675px) {
   .heading {
-    font-size: 50px;
+    font-size: 85px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .heading {
+    font-size: 70px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .heading {
+    font-size: 55px;
   }
 }
 @media only screen and (max-width: 350px) {
