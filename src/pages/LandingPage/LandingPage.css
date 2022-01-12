@@ -67,13 +67,6 @@
     width: 95%;
   }
 }
-@media only screen and (max-width: 600px){
-  .heading-div{
-    background: url("../../assets/img/bg.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-}
 
 /* PRIZES */
 
