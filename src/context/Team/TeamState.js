@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import AlertContext from '../Alert/AlertContext';
 import TeamContext from './TeamContext';
 
 
@@ -6,10 +7,11 @@ const TeamState = (props) => {
 
     const host = 'https://codetoscore-backend.herokuapp.com';
     const [teamMembers, setTeamMembers] = useState([]);
-
     const [teamDetails, setTeamDetails] = useState([]);
-
+    const alertContext = useContext(AlertContext);
+    const { handleAlert } = alertContext;
     // Fetch all team members
+
     const getTeam = async () => {
         const response = await fetch(`${host}/api/team/getteam`, {
             method: 'POST',
@@ -43,7 +45,10 @@ const TeamState = (props) => {
         console.log(json);
 
         if (json) {
+            handleAlert("Member Added successfully!!", "success");
             getTeam();
+        } else {
+            handleAlert("Something went wrong", "");
         }
     }
 
@@ -60,7 +65,10 @@ const TeamState = (props) => {
         const json = await response.json();
         console.log(json);
         if (json) {
+            handleAlert("Member Edited successfully!!", "success");
             getTeam();
+        } else {
+            handleAlert("Something went wrong", "");
         }
     }
 
@@ -76,11 +84,31 @@ const TeamState = (props) => {
         console.log(json);
         if (json) {
             getTeam();
+            handleAlert("Member deleted successfully!!", "success");
+        } else {
+            handleAlert("Something went wrong", "");
+        }
+    }
+
+    // Deleting the Team
+    const deleteTeam = async () => {
+        const response = await fetch(`${host}/api/auth/deleteteam`, {
+            method: 'DELETE',
+            headers: {
+                'auth-token': localStorage.getItem('authTokenRegCCSC')
+            }
+        })
+        const json = await response.json();
+        console.log(json);
+        if (json) {
+            handleAlert("Team deleted successfully!!", "success");
+        } else {
+            handleAlert("Something went wrong", "");
         }
     }
 
     return (
-        <TeamContext.Provider value={{ teamMembers, setTeamMembers, getTeam, addMember, editMember, deleteMember, teamDetails }}>
+        <TeamContext.Provider value={{ teamMembers, setTeamMembers, getTeam, addMember, editMember, deleteMember, teamDetails, deleteTeam }}>
             {props.children}
         </TeamContext.Provider>
     )

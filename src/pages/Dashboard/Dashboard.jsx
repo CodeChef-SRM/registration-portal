@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import AlertContext from "../../context/Alert/AlertContext";
 import TeamContext from "../../context/Team/TeamContext";
+import UserContext from "../../context/User/UserContext";
 import "./Dashboard.css";
 import TeamMemberBar from "./TeamMemberBar/TeamMemberBar";
 
@@ -14,8 +16,13 @@ const Dashboard = () => {
   };
 
   const teamContext = useContext(TeamContext);
+  const userContext = useContext(UserContext);
+  const alertContext = useContext(AlertContext);
 
-  const { teamDetails, teamMembers, getTeam, addMember } = teamContext;
+  const { teamDetails, teamMembers, getTeam, addMember, deleteTeam } =
+    teamContext;
+  const { changePass } = userContext;
+  const { handleAlert } = alertContext;
 
   const grabData = async () => {
     if (localStorage.getItem("authTokenRegCCSC")) {
@@ -31,14 +38,59 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard__master">
-      <HeaderComp signOut={signOut} teamDetails={teamDetails} />
-      <MainDash teamMembers={teamMembers} addMember={addMember} />
+      <HeaderComp
+        signOut={signOut}
+        teamDetails={teamDetails}
+        changePass={changePass}
+        history={history}
+        deleteTeam={deleteTeam}
+        handleAlert={handleAlert}
+      />
+      <MainDash
+        teamMembers={teamMembers}
+        addMember={addMember}
+        handleAlert={handleAlert}
+      />
     </div>
   );
 };
 
-const HeaderComp = ({ signOut, teamDetails }) => {
+const HeaderComp = ({
+  signOut,
+  teamDetails,
+  changePass,
+  history,
+  deleteTeam,
+  handleAlert,
+}) => {
   const [settings, setSettings] = useState(false);
+
+  const [currPass, setCurrPass] = useState("");
+  const [newPass, setNewPass] = useState("");
+  const [confPass, setConfPass] = useState("");
+
+  const [compare, setCompare] = useState(true);
+
+  useEffect(() => {
+    if (newPass === confPass) {
+      setCompare(false);
+    }
+  }, []);
+
+  const handleChangePassword = () => {
+    changePass(currPass, newPass);
+    localStorage.removeItem("authTokenRegCCSC");
+    handleAlert("Password Changed successfully!!", "success");
+    history.push("/");
+  };
+
+  const handleDeleteTeam = () => {
+    deleteTeam();
+    localStorage.removeItem("authTokenRegCCSC");
+    handleAlert("Team Deleted successfully!!", "success");
+    history.push("/");
+  };
+
   return (
     <div className="header display__flex flex__space__between">
       <div>
@@ -74,20 +126,46 @@ const HeaderComp = ({ signOut, teamDetails }) => {
             <input
               placeholder="Enter Current Password"
               className="edit__input"
+              value={currPass}
+              onChange={(e) => setCurrPass(e.target.value)}
             ></input>
             <input
               placeholder="Enter New Password"
               className="edit__input"
+              value={newPass}
+              onChange={(e) => setNewPass(e.target.value)}
             ></input>
             <input
               placeholder="Confirm New Password"
               className="edit__input"
+              value={confPass}
+              onChange={(e) => {
+                setConfPass(e.target.value);
+                if (newPass !== e.target.value) {
+                  setCompare(true);
+                } else {
+                  setCompare(false);
+                }
+              }}
             ></input>
+            {compare ? (
+              <p id="warning" style={{ color: "red" }}>
+                Passwords don't match
+              </p>
+            ) : (
+              ""
+            )}
             <div className="buttons__section">
-              <button className="button__primary edit__button settings__button">
+              <button
+                className="button__primary edit__button settings__button"
+                onClick={() => handleChangePassword()}
+              >
                 Change Password
               </button>
-              <button className="button__primary edit__button settings__button">
+              <button
+                className="button__primary edit__button settings__button"
+                onClick={() => handleDeleteTeam()}
+              >
                 Delete Team
               </button>
               <p id="warning">
@@ -104,7 +182,7 @@ const HeaderComp = ({ signOut, teamDetails }) => {
   );
 };
 
-const MainDash = ({ teamMembers, addMember }) => {
+const MainDash = ({ teamMembers, addMember, handleAlert }) => {
   const [addMemberPopUp, setAddMemberPopUp] = useState(false);
 
   const [name, setName] = useState("");
