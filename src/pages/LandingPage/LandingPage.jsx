@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
@@ -17,6 +17,17 @@ import "./LandingPage.css";
 import Alert from "../../components/Alert/Alert";
 
 function LandingPage() {
+
+  const [showLogin, setLogin] = useState(true);
+  function toggleShowLogin() {
+    setLogin(!showLogin);
+  }
+
+  const [showSignup, setSignup] = useState(true);
+  function toggleShowSignup() {
+    setSignup(!showSignup);
+  }
+
   return (
     <div className="main-div">
       <Navbar />
@@ -25,6 +36,16 @@ function LandingPage() {
 
       <div className="heading-div">
         <h1 className="heading">CodeToScore</h1>
+
+        <div className="heading-btns-div">
+          <button onClick={toggleShowLogin} className="heading-div-btn">
+            Login
+          </button>
+          <button onClick={toggleShowSignup} className="heading-div-btn">
+            Sign Up
+          </button>
+        </div>
+
       </div>
 
       {/* ABOUT EVENT */}
