@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Alert from "./components/Alert/Alert";
 import TeamState from "./context/Team/TeamState";
 import UserState from "./context/User/UserState";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -10,6 +11,7 @@ const App = () => {
     <>
       <TeamState>
         <UserState>
+          <Alert />
           <Router>
             <div>
               <Switch>

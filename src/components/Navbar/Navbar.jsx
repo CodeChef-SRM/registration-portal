@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import NavItems from "../NavItems/NavItems";
@@ -9,7 +9,6 @@ import Heading from "../../components/Heading/Heading";
 
 import "./Navbar.css";
 import { useHistory } from "react-router-dom";
-import TeamContext from "../../context/Team/TeamContext";
 
 const Navbar = () => {
   const [toggle, setState] = useState(false);
@@ -110,20 +109,23 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
   const history = useHistory();
 
   const handleRegister = async () => {
-    const response = await fetch(`http://localhost:8000/api/auth/register`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-        registrationnumber,
-        teamname,
-        phone,
-      }),
-    });
+    const response = await fetch(
+      `https://codetoscore-backend.herokuapp.com/api/auth/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          registrationnumber,
+          teamname,
+          phone,
+        }),
+      }
+    );
     const json = await response.json();
     console.log(json);
     if (json.authToken) {
@@ -134,7 +136,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
     }
   };
   useEffect(() => {
-    if (password == confirmPassword) {
+    if (password === confirmPassword) {
       setUnmatch(false);
     }
   }, []);
@@ -198,7 +200,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
             value={confirmPassword}
             onChange={(e) => {
               setConfirmPassword(e.target.value);
-              if (password != e.target.value) {
+              if (password !== e.target.value) {
                 setUnmatch(true);
               } else {
                 setUnmatch(false);
@@ -226,8 +228,8 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
 };
 
 const LoginPopup = ({ showLogin, toggleShowLogin }) => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const history = useHistory();
 

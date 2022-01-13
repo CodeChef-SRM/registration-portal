@@ -12,12 +12,11 @@ import Voiceflow from "../../assets/img/Voiceflow.png"
 import FaqList from "../../components/FaqList/FaqList";
 import Footer from "../../components/Footer/Footer";
 import Timeline from "../../components/Timeline/Timeline";
-import faqListData from "../../assets/js/FaqListData"
-
+import faqListData from "../../assets/js/FaqListData";
 import "./LandingPage.css";
+import Alert from "../../components/Alert/Alert";
 
 function LandingPage() {
-
   return (
     <div className="main-div">
       <Navbar />
@@ -31,7 +30,9 @@ function LandingPage() {
       {/* ABOUT EVENT */}
 
       <div className="about-event">
-        <h2 className="section-heading" id="aboutEvent">About the Event</h2>
+        <h2 className="section-heading" id="aboutEvent">
+          About the Event
+        </h2>
         <div className="aboutEvent-topDiv">
           <p className="about-event-desc">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
@@ -66,13 +67,17 @@ function LandingPage() {
 
       {/* TIMELINE */}
       <div className="schedule-div">
-        <h2 className="section-heading" id="schedule">Schedule</h2>
+        <h2 className="section-heading" id="schedule">
+          Schedule
+        </h2>
         <Timeline />
       </div>
 
       {/* PRIZES */}
       <div className="prizes">
-        <h2 className="section-heading" id="prizes">Prizes</h2>
+        <h2 className="section-heading" id="prizes">
+          Prizes
+        </h2>
         <div className="cards-div">
           <Card
             number="1"
@@ -95,7 +100,9 @@ function LandingPage() {
       {/* SPONSORS */}
 
       <div className="sponsors-div">
-        <h2 className="section-heading" id="sponsors">Sponsors</h2>
+        <h2 className="section-heading" id="sponsors">
+          Sponsors
+        </h2>
         <div className="sponsors-top-div">
           <img src={Taskade} alt="sponsor" className="sponsor-icon"/>
           <img src={scriptFoundation} alt="sponsor" className="sponsor-icon" id="scriptFoundations" />
@@ -112,9 +119,13 @@ function LandingPage() {
       {/* FAQ's */}
 
       <div className="faqs">
-        <h2 className="section-heading" id="faqs">FAQ's</h2>
+        <h2 className="section-heading" id="faqs">
+          FAQ's
+        </h2>
         <div className="faqs-list-div">
-          { faqListData.map( (data, index) => { return <FaqList key={index} que={data.que} ans={data.ans}/> })}
+          {faqListData.map((data, index) => {
+            return <FaqList key={index} que={data.que} ans={data.ans} />;
+          })}
         </div>
       </div>
       <Footer />
