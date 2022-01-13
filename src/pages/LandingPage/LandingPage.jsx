@@ -38,9 +38,6 @@ function LandingPage() {
         <h1 className="heading">CodeToScore</h1>
 
         <div className="heading-btns-div">
-          <button onClick={toggleShowLogin} className="heading-div-btn">
-            Login
-          </button>
           <button onClick={toggleShowSignup} className="heading-div-btn">
             Sign Up
           </button>
