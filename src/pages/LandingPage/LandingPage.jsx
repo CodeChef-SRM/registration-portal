@@ -5,13 +5,13 @@ import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
 import { GrClose } from "react-icons/gr";
 import Heading from "../../components/Heading/Heading";
-import password from "../../assets/img/password250.png"
-import Careernaksha from "../../assets/img/Careernaksha.png"
-import InterviewBuddy from "../../assets/img/InterviewBuddy.png"
-import scriptFoundation from "../../assets/img/scriptFoundation250.png"
-import sponsorGMC from "../../assets/img/sponsorGMC.png"
-import Taskade from "../../assets/img/Taskade.png"
-import Voiceflow from "../../assets/img/Voiceflow.png"
+import password from "../../assets/img/password250.png";
+import Careernaksha from "../../assets/img/Careernaksha.png";
+import InterviewBuddy from "../../assets/img/InterviewBuddy.png";
+import scriptFoundation from "../../assets/img/scriptFoundation250.png";
+import sponsorGMC from "../../assets/img/sponsorGMC.png";
+import Taskade from "../../assets/img/Taskade.png";
+import Voiceflow from "../../assets/img/Voiceflow.png";
 import FaqList from "../../components/FaqList/FaqList";
 import Footer from "../../components/Footer/Footer";
 import Timeline from "../../components/Timeline/Timeline";
@@ -21,7 +21,6 @@ import "../Dashboard/Dashboard.css";
 import Alert from "../../components/Alert/Alert";
 
 function LandingPage() {
-
   const [showSignup, setSignup] = useState(true);
   function toggleShowSignup() {
     setSignup(!showSignup);
@@ -51,7 +50,6 @@ function LandingPage() {
             Register
           </button>
         </div>
-
       </div>
 
       {/* ABOUT EVENT */}
@@ -62,32 +60,21 @@ function LandingPage() {
         </h2>
         <div className="aboutEvent-topDiv">
           <p className="about-event-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae
-            congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus.
-            Sed velit urna, dictum sollicitudin mi quis, consectetur blandit
-            sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar
-            bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus
-            fringilla. Donec in molestie mi, at sagittis nisl. Vivamus et odio
-            nec arcu eleifend tempus ac sed ex. Vestibulum at pretium nunc, sed
-            venenatis odio. Cras est sapien, aliquam non viverra in, sodales ut
-            odio. Nulla sodales dapibus maximus. Proin a convallis tortor.
-            Vestibulum pulvinar elit eu diam faucibus, consectetur dignissim
-            ante posuere.
+            Code-To-Score is a colossal event involving students from various
+            streams who come together to compete in this coding contest.
+            Code-to-score not only focuses on helping the students use their
+            skills to cross challenges, which form an integral part of
+            Competitive Programming but also shine light upon the areas which
+            students generally miss while boosting their skills by brainstorming
+            on many ﬁrm questions. To sum up, it's going to be nothing less than
+            a roller coaster ride for all techies, while also making some
+            memories that can be cherished forever.
           </p>
           <p className="about-event-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae
-            congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus.
-            Sed velit urna, dictum sollicitudin mi quis, consectetur blandit
-            sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar
-            bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus
-            fringilla. Donec in molestie mi, at sagittis nisl. Vivamus et odio
-            nec arcu eleifend tempus ac sed ex. Vestibulum at pretium nunc, sed
-            venenatis odio. Cras est sapien, aliquam non viverra in, sodales ut
-            odio. Nulla sodales dapibus maximus. Proin a convallis tortor.
-            Vestibulum pulvinar elit eu diam faucibus, consectetur dignissim
-            ante posuere.
+            This event will be organized on a CodeChef platform and will have
+            three rounds. Participants will have to qualify each round to
+            contest in the next. This is a team event and each team can have 2 -
+            4 players.
           </p>
         </div>
       </div>
@@ -109,17 +96,17 @@ function LandingPage() {
           <Card
             number="1"
             postfix="st"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu."
+            text="Amazon gift card worth Rs.1000 (to the team) + lifetime upgrade of taskade + unlimited Async online Interviews by interview buddy."
           />
           <Card
             number="2"
             postfix="nd"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu."
+            text="Amazon gift card worth Rs.700 (to the team) + lifetime upgrade of taskade + unlimited Async online Interviews by interview buddy."
           />
           <Card
             number="3"
             postfix="rd"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu."
+            text="Amazon gift card worth Rs.500 (to the team) + lifetime upgrade of taskade + unlimited Async online Interviews by interview buddy."
           />
         </div>
       </div>
@@ -131,14 +118,39 @@ function LandingPage() {
           Sponsors
         </h2>
         <div className="sponsors-top-div">
-          <img src={Taskade} alt="sponsor" className="sponsor-icon"/>
-          <img src={password} alt="sponsor" className="sponsor-icon" id="sponsor-password"/>
-          <img src={scriptFoundation} alt="sponsor" className="sponsor-icon" id="scriptFoundation" />
-          <img src={Voiceflow} alt="sponsor" className="sponsor-icon" id="voiceflow"/>
+          <img src={Taskade} alt="sponsor" className="sponsor-icon" />
+          <img
+            src={password}
+            alt="sponsor"
+            className="sponsor-icon"
+            id="sponsor-password"
+          />
+          <img
+            src={scriptFoundation}
+            alt="sponsor"
+            className="sponsor-icon"
+            id="scriptFoundation"
+          />
+          <img
+            src={Voiceflow}
+            alt="sponsor"
+            className="sponsor-icon"
+            id="voiceflow"
+          />
         </div>
         <div className="sponsors-bottom-div">
-          <img src={InterviewBuddy} alt="sponsor" className="sponsor-icon" id="interviewBuddy" />
-          <img src={Careernaksha} alt="sponsor" className="sponsor-icon" id="careernaksha"/>
+          <img
+            src={InterviewBuddy}
+            alt="sponsor"
+            className="sponsor-icon"
+            id="interviewBuddy"
+          />
+          <img
+            src={Careernaksha}
+            alt="sponsor"
+            className="sponsor-icon"
+            id="careernaksha"
+          />
           <img src={sponsorGMC} alt="sponsor" className="sponsor-icon" />
         </div>
       </div>
@@ -229,7 +241,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setName(e.target.value)
+              setName(e.target.value);
             }}
           ></input>
           <input
@@ -250,8 +262,8 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setTeamname(e.target.value)}
-            }
+              setTeamname(e.target.value);
+            }}
           ></input>
           <input
             className="edit__input"
@@ -264,8 +276,8 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setPhone(e.target.value);}
-            }
+              setPhone(e.target.value);
+            }}
           ></input>
           <input
             className="edit__input"
@@ -278,8 +290,8 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setRegisternumber(e.target.value);}
-            }
+              setRegisternumber(e.target.value);
+            }}
           ></input>
           <input
             className="edit__input"
@@ -292,7 +304,8 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setPassword(e.target.value)}}
+              setPassword(e.target.value);
+            }}
           ></input>
           <input
             className="edit__input"
@@ -301,11 +314,11 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
             value={confirmPassword}
             onChange={(e) => {
               setConfirmPassword(e.target.value);
-                if (password !== e.target.value) {
-                  setUnmatch(true);
-                } else {
-                  setUnmatch(false);
-                }
+              if (password !== e.target.value) {
+                setUnmatch(true);
+              } else {
+                setUnmatch(false);
+              }
             }}
           ></input>
           {unmatch ? (
@@ -327,6 +340,5 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
     </div>
   );
 };
-
 
 export default LandingPage;

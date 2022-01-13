@@ -1,19 +1,27 @@
 const faqListData = [
   {
-    que:"Lorem ipsum dolor sit amet, consectetur elit. Suspendisse nec egestas ?",
-    ans:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.",
+    que:"Is this a team event ?",
+    ans:"Yes. Each team can contain 2 to 4 participants.",
   },
   {
-    que:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec egestas ?",
-    ans:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.",
+    que:"Can we participate without a team ?",
+    ans:"No, you must need atleast a team of 2 to participate in this event",
   },
   {
-    que:"Lorem ipsum dolor sit amet, consectetur adipiscing. Suspendisse nec egestas ?",
-    ans:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.",
+    que:"Do I need to be a student of SRM IST to participate ?",
+    ans:"Yes, you need to be a student of SRMIST.",
   },
   {
-    que:"Lorem ipsum dolor sit, adipiscing elit. Suspendisse nec egestas ?",
-    ans:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec egestas nulla. Vestibulum fringilla vestibulum metus, vitae congue lacus hendrerit eu. Nulla ut arcu et erat convallis cursus. Sed velit urna, dictum sollicitudin mi quis, consectetur blandit sapien. Vivamus auctor quis mi non vulputate. Mauris pulvinar bibendum dui, et rhoncus sapien ultrices non. Duis faucibus cursus fringilla.",
+    que:"Who is eligible for this contest?",
+    ans:"Any student of SRMIST who is keen and enthusiastic.",
+  },
+  {
+    que:"Is this a paid event ?",
+    ans:"No, this isn't a paid event. You can register for free.",
+  },
+  {
+    que:"Where and when will this event take place?",
+    ans:"The event will be held on 22nd, 24th and 26th of January on CodeChef platform",
   },
 ]
 

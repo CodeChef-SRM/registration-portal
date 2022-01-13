@@ -1,23 +1,19 @@
 const data = [
     {
-        date: "25th Oct., 2020",
-        desc: "lorem ipsum dolor sit amet.",
+        date: "15th Jan, 2022",
+        desc: "Registration Opens",
     },
     {
-        date: "26th Oct., 2020",
-        desc: "lorem ipsum dolor sit amet.",
+        date: "22nd Jan, 2022",
+        desc: "Round 1",
     },
     {
-        date: "27th Oct., 2020",
-        desc: "lorem ipsum dolor sit amet.",
+        date: "24th Jan, 2022",
+        desc: "Round 2",
     },
     {
-        date: "28th Oct., 2020",
-        desc: "lorem ipsum dolor sit amet.",
-    },
-    {
-        date: "29th Oct., 2020",
-        desc: "lorem ipsum dolor sit amet.",
+        date: "26th Jan, 2022",
+        desc: "Round 3 & Results",
     },
 ]
 
