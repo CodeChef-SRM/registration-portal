@@ -83,7 +83,7 @@ const UserState = (props) => {
         if (json) {
             handleAlert("Password Changed Successfully!!!", "success");
         } else {
-            handleAlert("Something went wrong!!!");
+            handleAlert("Something went wrong!!!", "warning");
         }
     }
 
