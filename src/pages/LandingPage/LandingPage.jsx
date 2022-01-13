@@ -2,7 +2,13 @@ import React from "react";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
-import sponsor from "../../assets/img/sponsor.png";
+import password from "../../assets/img/password250.png"
+import Careernaksha from "../../assets/img/Careernaksha.png"
+import InterviewBuddy from "../../assets/img/InterviewBuddy.png"
+import scriptFoundation from "../../assets/img/scriptFoundation250.png"
+import sponsorGMC from "../../assets/img/sponsorGMC.png"
+import Taskade from "../../assets/img/Taskade.png"
+import Voiceflow from "../../assets/img/Voiceflow.png"
 import FaqList from "../../components/FaqList/FaqList";
 import Footer from "../../components/Footer/Footer";
 import Timeline from "../../components/Timeline/Timeline";
@@ -91,14 +97,15 @@ function LandingPage() {
       <div className="sponsors-div">
         <h2 className="section-heading" id="sponsors">Sponsors</h2>
         <div className="sponsors-top-div">
-          <img src={sponsor} alt="sponsor" className="sponsor-icon" />
-          <img src={sponsor} alt="sponsor" className="sponsor-icon" />
-          <img src={sponsor} alt="sponsor" className="sponsor-icon" />
+          <img src={Taskade} alt="sponsor" className="sponsor-icon"/>
+          <img src={scriptFoundation} alt="sponsor" className="sponsor-icon" id="scriptFoundations" />
+          <img src={password} alt="sponsor" className="sponsor-icon" />
+          <img src={Voiceflow} alt="sponsor" className="sponsor-icon" id="voiceflow"/>
         </div>
         <div className="sponsors-bottom-div">
-          <img src={sponsor} alt="sponsor" className="sponsor-icon" />
-          <img src={sponsor} alt="sponsor" className="sponsor-icon" />
-          <img src={sponsor} alt="sponsor" className="sponsor-icon" />
+          <img src={InterviewBuddy} alt="sponsor" className="sponsor-icon" id="interviewBuddy" />
+          <img src={Careernaksha} alt="sponsor" className="sponsor-icon" id="careernaksha"/>
+          <img src={sponsorGMC} alt="sponsor" className="sponsor-icon" />
         </div>
       </div>
 

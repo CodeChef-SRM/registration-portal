@@ -8,8 +8,9 @@
   align-items: center;
   font-size: 50px;
   background: url("../../assets/img/bg.png");
-  background-size: contain;
+  background-size: auto 75vh;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media only screen and (max-width: 675px) {
@@ -92,13 +93,30 @@
   align-items: center;
 }
 
-@media only screen and (max-width: 450px) {
+.sponsor-icon{
+  height: 75px;
+  width: 75px;
+}
+
+#interviewBuddy{
+  width: 125px;
+}
+#careernaksha{
+  height: 100px;
+  width: 125px;
+}
+#voiceflow{
+  height: 35px;
+  width: 125px;
+}
+
+@media only screen and (max-width: 500px) {
   .sponsors-top-div, .sponsors-bottom-div{
     flex-direction: column;
     margin-top: 0;
   }
   .sponsor-icon{
-    margin-top: 25px;
+    margin-top: 50px;
   }
 }
 
