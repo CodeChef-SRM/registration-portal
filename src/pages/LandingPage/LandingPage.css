@@ -109,8 +109,15 @@
   height: 35px;
   width: 125px;
 }
+#scriptFoundation{
+  height: 100px;
+}
+#sponsor-password{
+  height: 100px;
+  width: 100px;
+}
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
   .sponsors-top-div, .sponsors-bottom-div{
     flex-direction: column;
     margin-top: 0;

@@ -105,8 +105,8 @@ function LandingPage() {
         </h2>
         <div className="sponsors-top-div">
           <img src={Taskade} alt="sponsor" className="sponsor-icon"/>
-          <img src={scriptFoundation} alt="sponsor" className="sponsor-icon" id="scriptFoundations" />
-          <img src={password} alt="sponsor" className="sponsor-icon" />
+          <img src={password} alt="sponsor" className="sponsor-icon" id="sponsor-password"/>
+          <img src={scriptFoundation} alt="sponsor" className="sponsor-icon" id="scriptFoundation" />
           <img src={Voiceflow} alt="sponsor" className="sponsor-icon" id="voiceflow"/>
         </div>
         <div className="sponsors-bottom-div">
