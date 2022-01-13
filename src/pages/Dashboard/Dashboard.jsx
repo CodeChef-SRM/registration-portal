@@ -6,6 +6,7 @@ import TeamContext from "../../context/Team/TeamContext";
 import UserContext from "../../context/User/UserContext";
 import "./Dashboard.css";
 import TeamMemberBar from "./TeamMemberBar/TeamMemberBar";
+import Countdown from "react-countdown";
 
 const Dashboard = () => {
   const history = useHistory();
@@ -69,6 +70,9 @@ const HeaderComp = ({
   const [newPass, setNewPass] = useState("");
   const [confPass, setConfPass] = useState("");
 
+  const [currPassVerification, setCurrPassVerification] = useState(false);
+  const [newPassVerification, setNewPassVerification] = useState(false);
+
   const [compare, setCompare] = useState(true);
 
   useEffect(() => {
@@ -78,10 +82,14 @@ const HeaderComp = ({
   }, []);
 
   const handleChangePassword = () => {
-    changePass(currPass, newPass);
-    localStorage.removeItem("authTokenRegCCSC");
-    handleAlert("Password Changed successfully!!", "success");
-    history.push("/");
+    if (currPassVerification || newPassVerification) {
+      handleAlert("Password Fields are incorrect!!", "warning");
+    } else {
+      changePass(currPass, newPass);
+      handleAlert("Password Changed successfully!!", "success");
+    }
+    //   localStorage.removeItem("authTokenRegCCSC");
+    // history.push("/");
   };
 
   const handleDeleteTeam = () => {
@@ -123,18 +131,51 @@ const HeaderComp = ({
                 <i class="bi bi-x-lg"></i>
               </button>
             </div>
+            <label className="input__label">Current Password</label>
             <input
-              placeholder="Enter Current Password"
+              placeholder="Current Password"
               className="edit__input"
               value={currPass}
-              onChange={(e) => setCurrPass(e.target.value)}
+              onChange={(e) => {
+                setCurrPass(e.target.value);
+                if (e.target.value.length <= 6) {
+                  setCurrPassVerification(true);
+                } else {
+                  setCurrPassVerification(false);
+                }
+              }}
+              type={"password"}
             ></input>
+            {currPassVerification ? (
+              <p className="warning">
+                Password length should be greater than 6
+              </p>
+            ) : (
+              ""
+            )}
+            <label className="input__label">New Password</label>
             <input
-              placeholder="Enter New Password"
+              placeholder="New Password"
               className="edit__input"
               value={newPass}
-              onChange={(e) => setNewPass(e.target.value)}
+              onChange={(e) => {
+                setNewPass(e.target.value);
+                if (e.target.value.length <= 6) {
+                  setNewPassVerification(true);
+                } else {
+                  setNewPassVerification(false);
+                }
+              }}
+              type={"password"}
             ></input>
+            {newPassVerification ? (
+              <p className="warning">
+                Password length should be greater than 6
+              </p>
+            ) : (
+              ""
+            )}
+            <label className="input__label">Confirm New Password</label>
             <input
               placeholder="Confirm New Password"
               className="edit__input"
@@ -147,6 +188,7 @@ const HeaderComp = ({
                   setCompare(false);
                 }
               }}
+              type={"password"}
             ></input>
             {compare ? (
               <p id="warning" style={{ color: "red" }}>
@@ -190,9 +232,24 @@ const MainDash = ({ teamMembers, addMember, handleAlert }) => {
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [phone, setPhone] = useState("");
 
+  const [nameVerification, setNameVerification] = useState(false);
+  const [emailVerification, setEmailVerification] = useState(false);
+  const [registrationNumberVerification, setRegistrationNumberVerification] =
+    useState(false);
+  const [phoneVerification, setPhoneVerification] = useState(false);
+
   const excuteAddMember = () => {
-    addMember(name, registrationNumber, email, phone);
-    setAddMemberPopUp(false);
+    if (
+      nameVerification ||
+      emailVerification ||
+      registrationNumberVerification ||
+      phoneVerification
+    ) {
+      console.log("Wrong Credentials");
+    } else {
+      addMember(name, registrationNumber, email, phone);
+      setAddMemberPopUp(false);
+    }
   };
 
   return (
@@ -203,7 +260,9 @@ const MainDash = ({ teamMembers, addMember, handleAlert }) => {
           You need atleast one more member in your team in order to participate
         </h3>
       ) : (
-        ""
+        <h3 style={{ color: "#b1b1b1" }}>
+          Congratulations!! your team is registered
+        </h3>
       )}
       <div className="team__members display__flex flex__flow__down display__flex__start">
         {teamMembers.map((member) => {
@@ -218,35 +277,98 @@ const MainDash = ({ teamMembers, addMember, handleAlert }) => {
               <h1>Add Member</h1>
               <button
                 className="close__button display__flex"
-                onClick={() => setAddMemberPopUp(false)}
+                onClick={() => {
+                  setAddMemberPopUp(false);
+                  setName("");
+                  setEmail("");
+                  setRegistrationNumber("");
+                  setPhone("");
+                }}
               >
                 <i class="bi bi-x-lg"></i>
               </button>
             </div>
+            <label className="input__label">CodeChef ID</label>
             <input
-              placeholder="Enter CodeChef ID"
+              placeholder="CodeChef ID"
               value={name}
-              onChange={(e) => setName(e.target.value)}
               className="edit__input"
+              onChange={(e) => {
+                setName(e.target.value);
+                setName(e.target.value);
+                if (e.target.value.length <= 3) {
+                  setNameVerification(true);
+                } else {
+                  setNameVerification(false);
+                }
+              }}
             ></input>
+            {nameVerification ? (
+              <p className="warning">
+                CodeChef ID length should be greater than 3
+              </p>
+            ) : (
+              ""
+            )}
+            <label className="input__label">Email (srmist.edu.in)</label>
             <input
-              placeholder="Enter Email (srmist.edu.in)"
+              placeholder="Email (srmist.edu.in)"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (e.target.value.includes("@srmist.edu.in")) {
+                  setEmailVerification(false);
+                } else {
+                  setEmailVerification(true);
+                }
+              }}
               className="edit__input"
             ></input>
+            {emailVerification ? (
+              <p className="warning">Enter a valid Email ID (@srmist.edu.in)</p>
+            ) : (
+              ""
+            )}
+            <label className="input__label">
+              Registration Number (Eg :RAXXXXXXXXXXXXX)
+            </label>
             <input
-              placeholder="Enter Reg. No."
+              placeholder="Registration Number"
               value={registrationNumber}
-              onChange={(e) => setRegistrationNumber(e.target.value)}
+              onChange={(e) => {
+                setRegistrationNumber(e.target.value);
+                if (e.target.value.length === 15) {
+                  setRegistrationNumberVerification(false);
+                } else {
+                  setRegistrationNumberVerification(true);
+                }
+              }}
               className="edit__input"
             ></input>
+            {registrationNumberVerification ? (
+              <p className="warning">Enter a valid registration number</p>
+            ) : (
+              ""
+            )}
+            <label className="input__label">Phone Number</label>
             <input
-              placeholder="Enter Phone No."
+              placeholder="Phone Number"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => {
+                setPhone(e.target.value);
+                if (e.target.value.length === 10) {
+                  setPhoneVerification(false);
+                } else {
+                  setPhoneVerification(true);
+                }
+              }}
               className="edit__input"
             ></input>
+            {phoneVerification ? (
+              <p className="warning">Enter a valid phone number (10 digits)</p>
+            ) : (
+              ""
+            )}
             <button
               onClick={() => excuteAddMember()}
               className="button__primary edit__button"
@@ -266,6 +388,15 @@ const MainDash = ({ teamMembers, addMember, handleAlert }) => {
         <i class="bi bi-person-plus"></i>Add member
       </button>
       <p id="warning">(button will be disabled after 4 members are added)</p>
+      {teamMembers.length >= 2 ? (
+        <div className="challenge__link">
+          <h2>Thank you for registering</h2>
+          <br></br>
+          <p>Challange link will be updated here soon</p>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

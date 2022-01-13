@@ -13,6 +13,13 @@ const TeamMemberBar = ({ details }) => {
   const [phone, setPhone] = useState(details.phone);
   // -------------------
 
+  // Edit section checks
+  const [nameVerification, setNameVerification] = useState(false);
+  const [emailVerification, setEmailVerification] = useState(false);
+  const [registrationNumberVerification, setRegistrationNumberVerification] =
+    useState(false);
+  const [phoneVerification, setPhoneVerification] = useState(false);
+
   //contexts
   const teamContext = useContext(TeamContext);
 
@@ -22,8 +29,17 @@ const TeamMemberBar = ({ details }) => {
     deleteMember(details._id);
   };
   const editMemberFunc = () => {
-    editMember(details._id, name, registrationNumber, email, phone);
-    setEdit(false);
+    if (
+      nameVerification ||
+      emailVerification ||
+      registrationNumberVerification ||
+      phoneVerification
+    ) {
+      console.log("Wrong Credentials");
+    } else {
+      editMember(details._id, name, registrationNumber, email, phone);
+      setEdit(false);
+    }
   };
   return (
     <div
@@ -68,30 +84,84 @@ const TeamMemberBar = ({ details }) => {
                 <i class="bi bi-x-lg"></i>
               </button>
             </div>
+            <label className="input__label">CodeChef ID</label>
             <input
-              placeholder="Enter CodeChef ID"
+              placeholder="CodeChef ID"
               className="edit__input"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(e.target.value);
+                if (e.target.value.length <= 3) {
+                  setNameVerification(true);
+                } else {
+                  setNameVerification(false);
+                }
+              }}
             ></input>
+            {nameVerification ? (
+              <p className="warning">
+                CodeChef ID length should be greater than 3
+              </p>
+            ) : (
+              ""
+            )}
+            <label className="input__label">Email (srmist.edu.in)</label>
             <input
-              placeholder="Enter Email"
+              placeholder="Email (srmist.edu.in)"
               className="edit__input"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (e.target.value.includes("@srmist.edu.in")) {
+                  setEmailVerification(false);
+                } else {
+                  setEmailVerification(true);
+                }
+              }}
             ></input>
+            {emailVerification ? (
+              <p className="warning">Enter a valid Email ID (@srmist.edu.in)</p>
+            ) : (
+              ""
+            )}
+            <label className="input__label">Registration Number</label>
             <input
-              placeholder="Enter Registration Number"
+              placeholder="Registration Number"
               className="edit__input"
               value={registrationNumber}
-              onChange={(e) => setRegistrationNumber(e.target.value)}
+              onChange={(e) => {
+                setRegistrationNumber(e.target.value);
+                if (e.target.value.length === 15) {
+                  setRegistrationNumberVerification(false);
+                } else {
+                  setRegistrationNumberVerification(true);
+                }
+              }}
             ></input>
+            {registrationNumberVerification ? (
+              <p className="warning">Enter a valid registration number</p>
+            ) : (
+              ""
+            )}
+            <label className="input__label">Phone Number</label>
             <input
-              placeholder="Enter Phone Number"
+              placeholder="Phone Number"
               className="edit__input"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => {
+                setPhone(e.target.value);
+                if (e.target.value.length === 10) {
+                  setPhoneVerification(false);
+                } else {
+                  setPhoneVerification(true);
+                }
+              }}
             ></input>
+            {phoneVerification ? (
+              <p className="warning">Enter a valid phone number (10 digits)</p>
+            ) : (
+              ""
+            )}
             <button
               className="edit__button button__primary"
               onClick={() => editMemberFunc()}
