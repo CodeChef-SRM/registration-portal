@@ -1,6 +1,7 @@
 import React from "react";
 import NavItems from "../NavItems/NavItems";
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter, BsWhatsapp } from "react-icons/bs";
+import { FiMail } from "react-icons/fi";
 import "./Footer.css";
 
 const Footer = () => {
@@ -31,7 +32,7 @@ const Footer = () => {
           <a href="https://www.instagram.com/codechefsrm/?hl=en"><BsInstagram className="s-media-icon"/></a>
           <a href="https://twitter.com/codechefsrm"><BsTwitter className="s-media-icon"/></a>
           <a href="https://in.linkedin.com/company/ccscsrm"><BsLinkedin className="s-media-icon"/></a>
-          <a href="#"><BsWhatsapp className="s-media-icon"/></a>
+          <a href="mailto:codechefsrm@gmail.com"><FiMail className="s-media-icon"/></a>
         </div>
       </div>
     </div>

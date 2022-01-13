@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import NavItems from "../NavItems/NavItems";
 import { GrClose } from "react-icons/gr";
 import { AiOutlineMenu } from "react-icons/ai";
-import InputField from "../../components/InputField/InputField";
 import Heading from "../../components/Heading/Heading";
 
 import "./Navbar.css";
-import { useHistory } from "react-router-dom";
+import "../InputField/inputField.css"
 
 const Navbar = () => {
   const [toggle, setState] = useState(false);
@@ -133,6 +132,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
       history.push("/dashboard");
     } else {
       console.log("something went wrong");
+      alert("Invalid Inputs..!!");
     }
   };
   useEffect(() => {
@@ -140,6 +140,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
       setUnmatch(false);
     }
   }, []);
+
   return (
     <div className={showSignup ? "d-none" : "registerForEvent-master"}>
       <div className="registerForEvent-contianer">
@@ -156,7 +157,14 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
             placeholder="Enter your Codechef ID"
             type={"text"}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value.length >= 2) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setName(e.target.value)
+            }}
           ></input>
           <input
             className="edit__input"
@@ -170,28 +178,55 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
             placeholder="Enter your Team Name"
             type={"text"}
             value={teamname}
-            onChange={(e) => setTeamname(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value.length >= 3) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setTeamname(e.target.value)}
+            }
           ></input>
           <input
             className="edit__input"
             placeholder="Enter your Phone No."
             type={"number"}
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value.length >= 10) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setPhone(e.target.value);}
+            }
           ></input>
           <input
             className="edit__input"
-            placeholder="Enter your Registeration No. (RA.............)"
+            placeholder="Enter your Registeration No. (RA...)"
             type={"text"}
             value={registrationnumber}
-            onChange={(e) => setRegisternumber(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value.length >= 15) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setRegisternumber(e.target.value);}
+            }
           ></input>
           <input
             className="edit__input"
             placeholder="Enter Password"
             type={"password"}
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value.length >= 6) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setPassword(e.target.value)}}
           ></input>
           <input
             className="edit__input"
@@ -200,11 +235,11 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
             value={confirmPassword}
             onChange={(e) => {
               setConfirmPassword(e.target.value);
-              if (password !== e.target.value) {
-                setUnmatch(true);
-              } else {
-                setUnmatch(false);
-              }
+                if (password !== e.target.value) {
+                  setUnmatch(true);
+                } else {
+                  setUnmatch(false);
+                }
             }}
           ></input>
           {unmatch ? (
@@ -246,6 +281,7 @@ const LoginPopup = ({ showLogin, toggleShowLogin }) => {
     );
     const json = await response.json();
     console.log(json);
+    alert("Invalid Inputs..!!");
     if (json.authToken) {
       localStorage.setItem("authTokenRegCCSC", json.authToken);
       toggleShowLogin(true);

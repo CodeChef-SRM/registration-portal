@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Card from "../../components/Card/Card";
+import { GrClose } from "react-icons/gr";
+import Heading from "../../components/Heading/Heading";
 import password from "../../assets/img/password250.png"
 import Careernaksha from "../../assets/img/Careernaksha.png"
 import InterviewBuddy from "../../assets/img/InterviewBuddy.png"
@@ -14,24 +17,30 @@ import Footer from "../../components/Footer/Footer";
 import Timeline from "../../components/Timeline/Timeline";
 import faqListData from "../../assets/js/FaqListData";
 import "./LandingPage.css";
+import "../Dashboard/Dashboard.css";
 import Alert from "../../components/Alert/Alert";
 
 function LandingPage() {
 
-  const [showLogin, setLogin] = useState(true);
-  function toggleShowLogin() {
-    setLogin(!showLogin);
-  }
-
   const [showSignup, setSignup] = useState(true);
   function toggleShowSignup() {
     setSignup(!showSignup);
+  }
+  const [showLogin, setLogin] = useState(true);
+  function toggleShowLogin() {
+    setLogin(!showLogin);
   }
 
   return (
     <div className="main-div">
       <Navbar />
 
+      {/* <RegisterPopup /> */}
+      <RegisterPopup
+        showSignup={showSignup}
+        toggleShowSignup={toggleShowSignup}
+        setLogin={setLogin}
+      />
       {/* HEADING */}
 
       <div className="heading-div">
@@ -39,7 +48,7 @@ function LandingPage() {
 
         <div className="heading-btns-div">
           <button onClick={toggleShowSignup} className="heading-div-btn">
-            Sign Up
+            Register
           </button>
         </div>
 
@@ -150,5 +159,174 @@ function LandingPage() {
     </div>
   );
 }
+
+const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [teamname, setTeamname] = useState("");
+  const [phone, setPhone] = useState("");
+  const [registrationnumber, setRegisternumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [unmatch, setUnmatch] = useState(false);
+
+  const history = useHistory();
+
+  const handleRegister = async () => {
+    const response = await fetch(
+      `https://codetoscore-backend.herokuapp.com/api/auth/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          registrationnumber,
+          teamname,
+          phone,
+        }),
+      }
+    );
+    const json = await response.json();
+    console.log(json);
+    if (json.authToken) {
+      localStorage.setItem("authTokenRegCCSC", json.authToken);
+      history.push("/dashboard");
+    } else {
+      console.log("something went wrong");
+      alert("Invalid Inputs..!!");
+    }
+  };
+  useEffect(() => {
+    if (password === confirmPassword) {
+      setUnmatch(false);
+    }
+  }, []);
+
+  return (
+    <div className={showSignup ? "d-none" : "registerForEvent-master"}>
+      <div className="registerForEvent-contianer">
+        <div className="regForm-top">
+          <div className="reg-form-right">
+            <Heading text="Register for the event" />
+            <p className="info">(Only Team Leader should register)</p>
+          </div>
+          <GrClose onClick={toggleShowSignup} className="close-icon" />
+        </div>
+        <div>
+          <input
+            className="edit__input"
+            placeholder="Enter your Codechef ID"
+            type={"text"}
+            value={name}
+            onChange={(e) => {
+              if (e.target.value.length >= 2) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setName(e.target.value)
+            }}
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter your E mail (srmist.edu.in)"
+            type={"email"}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter your Team Name"
+            type={"text"}
+            value={teamname}
+            onChange={(e) => {
+              if (e.target.value.length >= 3) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setTeamname(e.target.value)}
+            }
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter your Phone No."
+            type={"number"}
+            value={phone}
+            onChange={(e) => {
+              if (e.target.value.length >= 10) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setPhone(e.target.value);}
+            }
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter your Registeration No. (RA...)"
+            type={"text"}
+            value={registrationnumber}
+            onChange={(e) => {
+              if (e.target.value.length >= 15) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setRegisternumber(e.target.value);}
+            }
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Enter Password"
+            type={"password"}
+            value={password}
+            onChange={(e) => {
+              if (e.target.value.length >= 6) {
+                e.target.style.border = "";
+              } else {
+                e.target.style.border = "2px solid red";
+              }
+              setPassword(e.target.value)}}
+          ></input>
+          <input
+            className="edit__input"
+            placeholder="Confirm Password"
+            type={"password"}
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+                if (password !== e.target.value) {
+                  setUnmatch(true);
+                } else {
+                  setUnmatch(false);
+                }
+            }}
+          ></input>
+          {unmatch ? (
+            <p style={{ color: "red", fontSize: "12px" }}>
+              Passwords don't match
+            </p>
+          ) : (
+            ""
+          )}
+        </div>
+        <button
+          className="button__primary"
+          style={{ width: "100px", borderRadius: "5px" }}
+          onClick={() => handleRegister()}
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  );
+};
+
 
 export default LandingPage;
