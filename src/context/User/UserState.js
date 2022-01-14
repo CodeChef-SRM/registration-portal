@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import AlertContext from "../Alert/AlertContext";
+import LoadingContext from "../Loading/LoadingContext";
 import UserContext from "./UserContext";
 
 const UserState = (props) => {
@@ -10,9 +11,11 @@ const UserState = (props) => {
 
     const alertContext = useContext(AlertContext);
     const { handleAlert } = alertContext;
-
+    const loadingContext = useContext(LoadingContext);
+    const { showLoader, closeLoader } = loadingContext;
     // Register
     const Register = async (name, email, registerationnumber, password, teamname, phone) => {
+        showLoader();
         const response = await fetch(`${host}/api/auth/register`, {
             method: 'POST',
             headers: {
@@ -26,14 +29,17 @@ const UserState = (props) => {
             localStorage.setItem('authTokenRegCCSC', json.authToken);
             handleAlert("User Registered Successfully!!!", "success");
             setLogin(true);
+            closeLoader();
         } else {
             handleAlert("Something went wrong!!!");
             setLogin(false);
+            closeLoader();
         }
     }
 
     // Logging In
     const Login = async (email, password) => {
+        showLoader();
         const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
             headers: {
@@ -47,9 +53,11 @@ const UserState = (props) => {
             handleAlert("User Login Successful!!!", "success");
             localStorage.setItem('authTokenRegCCSC', json.authToken);
             setLogin(true);
+            closeLoader();
         } else {
             handleAlert("Something went wrong!!!");
             setLogin(false);
+            closeLoader();
         }
     }
 
@@ -70,6 +78,7 @@ const UserState = (props) => {
 
     // Change user password
     const changePass = async (currentpassword, newpassword) => {
+        showLoader();
         const response = await fetch(`${host}/api/auth/changepassword`, {
             method: 'PUT',
             headers: {
@@ -82,8 +91,10 @@ const UserState = (props) => {
         console.log(json);
         if (json) {
             handleAlert("Password Changed Successfully!!!", "success");
+            closeLoader();
         } else {
             handleAlert("Something went wrong!!!", "warning");
+            closeLoader();
         }
     }
 

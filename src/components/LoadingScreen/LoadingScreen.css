@@ -1,0 +1,15 @@
+.loading__screen__main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.loading__pocket {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border-radius: 10px;
+}

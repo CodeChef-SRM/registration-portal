@@ -6,7 +6,6 @@ import TeamContext from "../../context/Team/TeamContext";
 import UserContext from "../../context/User/UserContext";
 import "./Dashboard.css";
 import TeamMemberBar from "./TeamMemberBar/TeamMemberBar";
-import Countdown from "react-countdown";
 
 const Dashboard = () => {
   const history = useHistory();

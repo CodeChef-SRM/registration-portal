@@ -7,7 +7,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Heading from "../../components/Heading/Heading";
 
 import "./Navbar.css";
-import "../InputField/inputField.css"
+import "../InputField/inputField.css";
 
 const Navbar = () => {
   const [toggle, setState] = useState(false);
@@ -163,7 +163,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setName(e.target.value)
+              setName(e.target.value);
             }}
           ></input>
           <input
@@ -184,8 +184,8 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setTeamname(e.target.value)}
-            }
+              setTeamname(e.target.value);
+            }}
           ></input>
           <input
             className="edit__input"
@@ -198,8 +198,8 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setPhone(e.target.value);}
-            }
+              setPhone(e.target.value);
+            }}
           ></input>
           <input
             className="edit__input"
@@ -212,8 +212,8 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setRegisternumber(e.target.value);}
-            }
+              setRegisternumber(e.target.value);
+            }}
           ></input>
           <input
             className="edit__input"
@@ -226,7 +226,8 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
               } else {
                 e.target.style.border = "2px solid red";
               }
-              setPassword(e.target.value)}}
+              setPassword(e.target.value);
+            }}
           ></input>
           <input
             className="edit__input"
@@ -235,11 +236,11 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
             value={confirmPassword}
             onChange={(e) => {
               setConfirmPassword(e.target.value);
-                if (password !== e.target.value) {
-                  setUnmatch(true);
-                } else {
-                  setUnmatch(false);
-                }
+              if (password !== e.target.value) {
+                setUnmatch(true);
+              } else {
+                setUnmatch(false);
+              }
             }}
           ></input>
           {unmatch ? (
@@ -281,13 +282,13 @@ const LoginPopup = ({ showLogin, toggleShowLogin }) => {
     );
     const json = await response.json();
     console.log(json);
-    alert("Invalid Inputs..!!");
     if (json.authToken) {
       localStorage.setItem("authTokenRegCCSC", json.authToken);
-      toggleShowLogin(true);
+      toggleShowLogin(false);
       history.push("/dashboard");
     } else {
-      toggleShowLogin(false);
+      toggleShowLogin(true);
+      alert("Invalid Inputs..!!");
     }
   };
   return (
