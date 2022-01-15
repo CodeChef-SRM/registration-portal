@@ -300,7 +300,7 @@ const LoginPopup = ({ showLogin, toggleShowLogin, handleAlert }) => {
       handleAlert("Log In Successfull!!", "success");
     } else {
       toggleShowLogin(true);
-      handleAlert("Wrong Credentials!!", "success");
+      handleAlert("Wrong Credentials!!", "");
     }
   };
   return (

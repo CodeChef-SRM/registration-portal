@@ -31,7 +31,7 @@ const UserState = (props) => {
             setLogin(true);
             closeLoader();
         } else {
-            handleAlert("Something went wrong!!!");
+            handleAlert("Something went wrong!!!", "");
             setLogin(false);
             closeLoader();
         }
