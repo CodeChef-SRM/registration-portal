@@ -203,7 +203,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup, handleAlert }) => {
       }
     );
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     if (json.authToken) {
       localStorage.setItem("authTokenRegCCSC", json.authToken);
       history.push("/dashboard");

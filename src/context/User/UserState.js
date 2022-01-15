@@ -24,7 +24,7 @@ const UserState = (props) => {
             body: JSON.stringify({ name, email, registerationnumber, password, teamname, phone })
         })
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if (json.authToken) {
             localStorage.setItem('authTokenRegCCSC', json.authToken);
             handleAlert("User Registered Successfully!!!", "success");
@@ -48,7 +48,7 @@ const UserState = (props) => {
             body: JSON.stringify({ email, password })
         })
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if (json.authToken) {
             handleAlert("User Login Successful!!!", "success");
             localStorage.setItem('authTokenRegCCSC', json.authToken);
@@ -70,7 +70,7 @@ const UserState = (props) => {
             }
         })
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if (json) {
             setUserDetails(json);
         }
@@ -88,7 +88,7 @@ const UserState = (props) => {
             body: JSON.stringify({ currentpassword, newpassword })
         })
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if (json) {
             handleAlert("Password Changed Successfully!!!", "success");
             closeLoader();

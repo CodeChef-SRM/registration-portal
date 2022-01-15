@@ -24,7 +24,7 @@ const TeamState = (props) => {
             }
         })
         const json = await response.json();
-        console.log(json[0].teammembers);
+        // console.log(json[0].teammembers);
 
         if (json) {
             setTeamMembers(json[0].teammembers);
@@ -48,10 +48,10 @@ const TeamState = (props) => {
             body: JSON.stringify({ name, registrationnumber, email, phone })
         })
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
 
         if (json) {
-            console.log(json);
+            // console.log(json);
             if (!json.error) {
                 handleAlert("Member Added successfully!!", "success");
                 getTeam();
@@ -78,7 +78,7 @@ const TeamState = (props) => {
             body: JSON.stringify({ name, registrationnumber, email, phone })
         })
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if (json) {
             if (!json.error) {
                 handleAlert("Member Edited successfully!!", "success");
@@ -103,7 +103,7 @@ const TeamState = (props) => {
             }
         })
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if (json) {
             getTeam();
             handleAlert("Member deleted successfully!!", "success");
@@ -123,7 +123,7 @@ const TeamState = (props) => {
             }
         })
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if (json) {
             handleAlert("Team deleted successfully!!", "success");
             closeLoader();
