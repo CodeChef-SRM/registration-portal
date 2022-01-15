@@ -46,7 +46,6 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="middle">
-          <NavItems link="/" text="Home" />
           <NavItems link="#prizes" text="Prizes" />
           <NavItems link="#schedule" text="Schedule" />
           <NavItems link="#sponsors" text="Sponsors" />
@@ -74,7 +73,6 @@ const Navbar = () => {
         className="resp-navbar"
         style={{ display: toggle ? "flex" : "none" }}
       >
-        <NavItems onClick={showNavbar} link="/home" text="Home" />
         <NavItems onClick={showNavbar} link="#prizes" text="Prizes" />
         <NavItems onClick={showNavbar} link="#schedule" text="Schedule" />
         <NavItems onClick={showNavbar} link="#sponsors" text="Sponsors" />
