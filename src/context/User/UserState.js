@@ -42,13 +42,13 @@ const UserState = (props) => {
         const response = await fetch('https://codechefemailer.herokuapp.com/send', {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + process.env.REACT_APP_AUTHORIZATION_KEY9,
+                'Authorization': 'Bearer ' + process.env.REACT_APP_AUTHORIZATION_KEY,
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({ email_id: email_id, html: html })
         })
         const json = await response.json();
-        // console.log(process.env.REACT_APP_AUTHORIZATION_KEY);
+        console.log(json);
     }
 
     const Register = async (name, email, registerationnumber, password, teamname, phone) => {
