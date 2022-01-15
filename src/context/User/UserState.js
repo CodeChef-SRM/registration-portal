@@ -14,6 +14,43 @@ const UserState = (props) => {
     const loadingContext = useContext(LoadingContext);
     const { showLoader, closeLoader } = loadingContext;
     // Register
+
+
+    // Send Mail
+    const sendMail = async (email_id, teamname) => {
+        const html = `<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Document</title><link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet'><style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .main {
+            padding: 20px;
+        }
+        .main h3 {
+            margin: 20px 0;
+        }
+        .header {
+            width: 80%;
+            height: 100px;
+            background: #17233F;
+            color: #E7BB41;
+            padding: 10%;
+        }
+    </style></head><body><div class='header'><h1>CodeToScore</h1></div><div class='main'><br /><h1>Hi !! 👋</h1><br /><p>Thank you 🙏 <b>${email_id}</b> for registering in CodeToScore.</p><p>Your team <b>${teamname}</b> has been registered successfully for the event.</p><h3>Best of Luck for the contest</h3><p>Regards, <br>CCSC KTR Team</p></div></body></html>`;
+
+        const response = await fetch('https://codechefemailer.herokuapp.com/send', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + process.env.REACT_APP_AUTHORIZATION_KEY9,
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({ email_id: email_id, html: html })
+        })
+        const json = await response.json();
+        console.log(process.env.REACT_APP_AUTHORIZATION_KEY);
+    }
+
     const Register = async (name, email, registerationnumber, password, teamname, phone) => {
         showLoader();
         const response = await fetch(`${host}/api/auth/register`, {
@@ -99,7 +136,7 @@ const UserState = (props) => {
     }
 
     return (
-        <UserContext.Provider value={{ login, setLogin, Register, Login, GetUser, userDetails, changePass }}>
+        <UserContext.Provider value={{ login, setLogin, Register, Login, GetUser, userDetails, changePass, sendMail }}>
             {props.children}
         </UserContext.Provider>
     )

@@ -5,10 +5,10 @@ import NavItems from "../NavItems/NavItems";
 import { GrClose } from "react-icons/gr";
 import { AiOutlineMenu } from "react-icons/ai";
 import Heading from "../../components/Heading/Heading";
-
 import "./Navbar.css";
 import "../InputField/inputField.css";
 import AlertContext from "../../context/Alert/AlertContext";
+import UserContext from "../../context/User/UserContext";
 
 const Navbar = () => {
   const [toggle, setState] = useState(false);
@@ -31,6 +31,9 @@ const Navbar = () => {
 
   const alertContext = useContext(AlertContext);
   const { handleAlert } = alertContext;
+
+  const userContext = useContext(UserContext);
+  const { sendMail } = userContext;
 
   const [showSignup, setSignup] = useState(true);
   function toggleShowSignup() {
@@ -96,12 +99,18 @@ const Navbar = () => {
         toggleShowSignup={toggleShowSignup}
         setLogin={setLogin}
         handleAlert={handleAlert}
+        sendMail={sendMail}
       />
     </>
   );
 };
 
-const RegisterPopup = ({ showSignup, toggleShowSignup, handleAlert }) => {
+const RegisterPopup = ({
+  showSignup,
+  toggleShowSignup,
+  handleAlert,
+  sendMail,
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [teamname, setTeamname] = useState("");
@@ -138,6 +147,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup, handleAlert }) => {
       localStorage.setItem("authTokenRegCCSC", json.authToken);
       history.push("/dashboard");
       handleAlert("Registeration Successfull!!", "success");
+      sendMail(email, teamname);
     } else {
       console.log("something went wrong");
       handleAlert("Wrong Inputs!!", "");

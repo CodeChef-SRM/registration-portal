@@ -19,6 +19,7 @@ import faqListData from "../../assets/js/FaqListData";
 import "./LandingPage.css";
 import "../Dashboard/Dashboard.css";
 import AlertContext from "../../context/Alert/AlertContext";
+import UserContext from "../../context/User/UserContext";
 
 function LandingPage() {
   const [showSignup, setSignup] = useState(true);
@@ -29,6 +30,9 @@ function LandingPage() {
   const alertContext = useContext(AlertContext);
   const { handleAlert } = alertContext;
 
+  const userContext = useContext(UserContext);
+  const { sendMail } = userContext;
+
   return (
     <div className="main-div">
       <Navbar />
@@ -38,6 +42,7 @@ function LandingPage() {
         showSignup={showSignup}
         toggleShowSignup={toggleShowSignup}
         handleAlert={handleAlert}
+        sendMail={sendMail}
       />
       {/* HEADING */}
 
@@ -161,7 +166,12 @@ function LandingPage() {
   );
 }
 
-const RegisterPopup = ({ showSignup, toggleShowSignup, handleAlert }) => {
+const RegisterPopup = ({
+  showSignup,
+  toggleShowSignup,
+  handleAlert,
+  sendMail,
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [teamname, setTeamname] = useState("");
@@ -198,6 +208,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup, handleAlert }) => {
       localStorage.setItem("authTokenRegCCSC", json.authToken);
       history.push("/dashboard");
       handleAlert("Registeration Successfull!!", "success");
+      sendMail(email, teamname);
     } else {
       console.log("something went wrong");
       handleAlert("Wrong Inputs!!", "");
