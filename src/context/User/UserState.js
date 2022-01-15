@@ -48,7 +48,7 @@ const UserState = (props) => {
             body: JSON.stringify({ email_id: email_id, html: html })
         })
         const json = await response.json();
-        console.log(process.env.REACT_APP_AUTHORIZATION_KEY);
+        // console.log(process.env.REACT_APP_AUTHORIZATION_KEY);
     }
 
     const Register = async (name, email, registerationnumber, password, teamname, phone) => {
