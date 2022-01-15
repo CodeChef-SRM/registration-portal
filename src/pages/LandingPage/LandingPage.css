@@ -14,7 +14,7 @@
   background-position: center;
 }
 
-.heading-btns-div{
+.heading-btns-div {
   width: 40%;
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
   margin-top: 3%;
 }
 
-.heading-div-btn{
+.heading-div-btn {
   height: 40px;
   width: 125px;
   background-color: var(--dark);
@@ -40,7 +40,7 @@
   .heading {
     font-size: 85px;
   }
-  .heading-btns-div{
+  .heading-btns-div {
     width: 50%;
   }
 }
@@ -48,7 +48,7 @@
   .heading {
     font-size: 70px;
   }
-  .heading-btns-div{
+  .heading-btns-div {
     width: 60%;
   }
 }
@@ -56,12 +56,12 @@
   .heading {
     font-size: 55px;
   }
-  .heading-btns-div{
+  .heading-btns-div {
     width: 70%;
   }
 }
 @media only screen and (max-width: 375px) {
-  .heading-btns-div{
+  .heading-btns-div {
     width: 90%;
   }
 }
@@ -73,9 +73,13 @@
 
 /* ABOUT EVENT */
 
-.about-event, .prizes, .sponsors-div, .faqs {
-  margin-top: 5%;
+.about-event,
+.prizes,
+.sponsors-div,
+.schedule-div,
+.faqs {
   padding: 1% 4%;
+  padding-top: 10%;
 }
 
 .underline {
@@ -100,15 +104,15 @@
   font-size: 20px;
 }
 
-@media only screen and (max-width: 650px){
-  .about-event-desc{
+@media only screen and (max-width: 650px) {
+  .about-event-desc {
     width: 95%;
   }
 }
 
 /* PRIZES */
 
-.cards-div{
+.cards-div {
   margin-top: 4%;
   display: flex;
   justify-content: space-around;
@@ -123,62 +127,63 @@
 
 /* SPONSORS */
 
-.sponsors-top-div, .sponsors-bottom-div{
+.sponsors-top-div,
+.sponsors-bottom-div {
   margin-top: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.sponsor-icon{
+.sponsor-icon {
   height: 75px;
   width: 75px;
 }
 
-#interviewBuddy{
+#interviewBuddy {
   width: 125px;
 }
-#careernaksha{
+#careernaksha {
   height: 100px;
   width: 125px;
 }
-#voiceflow{
+#voiceflow {
   height: 35px;
   width: 125px;
 }
-#scriptFoundation{
+#scriptFoundation {
   height: 100px;
 }
-#sponsor-password{
+#sponsor-password {
   height: 100px;
   width: 100px;
 }
 
 @media only screen and (max-width: 550px) {
-  .sponsors-top-div, .sponsors-bottom-div{
+  .sponsors-top-div,
+  .sponsors-bottom-div {
     flex-direction: column;
     margin-top: 0;
   }
-  .sponsor-icon{
+  .sponsor-icon {
     margin-top: 50px;
   }
 }
 
 /* FAQ's */
 
-.faqs-list-div{
+.faqs-list-div {
   margin-top: 5%;
 }
 
-@media only screen and (max-width: 450px){
-  .faqs-list-div{
+@media only screen and (max-width: 450px) {
+  .faqs-list-div {
     margin-top: 7%;
   }
 }
 
-
 /* REGISTER FORM */
-.registerForEvent-master{
+.registerForEvent-master {
   padding: 2% 3%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 250;
@@ -189,7 +194,7 @@
   width: 100%;
   height: 100vh;
 }
-.registerForEvent-contianer{
+.registerForEvent-contianer {
   padding: 2%;
   background-color: #ffffff;
   width: 90%;
@@ -200,13 +205,13 @@
   justify-content: space-between;
 }
 
-.regForm-top{
+.regForm-top {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
 }
 
-.info{
+.info {
   font-size: 12px;
   color: var(--dark);
   font-weight: 500;
@@ -226,8 +231,8 @@
   border-bottom: #17233f;
 }
 
-@media only screen and (max-width: 600px){
-  .registerForEvent-contianer{
+@media only screen and (max-width: 600px) {
+  .registerForEvent-contianer {
     padding: 15px;
     height: 90%;
     width: 100%;

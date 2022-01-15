@@ -53,10 +53,8 @@ function LandingPage() {
 
       {/* ABOUT EVENT */}
 
-      <div className="about-event">
-        <h2 className="section-heading" id="aboutEvent">
-          About the Event
-        </h2>
+      <div className="about-event" id="aboutEvent">
+        <h2 className="section-heading">About the Event</h2>
         <div className="aboutEvent-topDiv">
           <p className="about-event-desc">
             Code-To-Score is a colossal event involving students from various
@@ -79,18 +77,14 @@ function LandingPage() {
       </div>
 
       {/* TIMELINE */}
-      <div className="schedule-div">
-        <h2 className="section-heading" id="schedule">
-          Schedule
-        </h2>
+      <div className="schedule-div" id="schedule">
+        <h2 className="section-heading">Schedule</h2>
         <Timeline />
       </div>
 
       {/* PRIZES */}
-      <div className="prizes">
-        <h2 className="section-heading" id="prizes">
-          Prizes
-        </h2>
+      <div className="prizes" id="prizes">
+        <h2 className="section-heading">Prizes</h2>
         <div className="cards-div">
           <Card
             number="1"
@@ -112,10 +106,8 @@ function LandingPage() {
 
       {/* SPONSORS */}
 
-      <div className="sponsors-div">
-        <h2 className="section-heading" id="sponsors">
-          Sponsors
-        </h2>
+      <div className="sponsors-div" id="sponsors">
+        <h2 className="section-heading">Sponsors</h2>
         <div className="sponsors-top-div">
           <img src={Taskade} alt="sponsor" className="sponsor-icon" />
           <img
@@ -156,10 +148,8 @@ function LandingPage() {
 
       {/* FAQ's */}
 
-      <div className="faqs">
-        <h2 className="section-heading" id="faqs">
-          FAQ's
-        </h2>
+      <div className="faqs" id="faqs">
+        <h2 className="section-heading">FAQ's</h2>
         <div className="faqs-list-div">
           {faqListData.map((data, index) => {
             return <FaqList key={index} que={data.que} ans={data.ans} />;
