@@ -31,13 +31,14 @@ const UserState = (props) => {
             margin: 20px 0;
         }
         .header {
-            width: 80%;
-            height: 100px;
+            width: 90%;
+            height: auto;
             background: #17233F;
             color: #E7BB41;
-            padding: 10%;
+            padding: 5%;
         }
-    </style></head><body><div class='header'><h1>CodeToScore</h1></div><div class='main'><br /><h1>Hi !! 👋</h1><br /><p>Thank you 🙏 <b>${email_id}</b> for registering in CodeToScore.</p><p>Your team <b>${teamname}</b> has been registered successfully for the event.</p><h3>Best of Luck for the contest</h3><p>Regards, <br>CCSC KTR Team</p></div></body></html>`;
+    </style></head><body><div class='header'> <h1>CodeToScore</h1>
+        <h2>CCSC KTR</h2></div><div class='main'><br /><h1>Hi !! 👋</h1><br /><p>Thank you 🙏 <b>${email_id}</b> for registering in CodeToScore.</p><p>Your team <b>${teamname}</b> has been registered successfully for the event.</p><h3>Best of Luck for the contest</h3><p>Regards, <br>CCSC KTR Team</p></div></body></html>`;
 
         const response = await fetch('https://codechefemailer.herokuapp.com/send', {
             method: 'POST',
