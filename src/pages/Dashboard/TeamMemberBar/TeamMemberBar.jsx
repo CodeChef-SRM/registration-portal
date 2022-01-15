@@ -44,7 +44,7 @@ const TeamMemberBar = ({ details }) => {
   return (
     <div
       className="team__member__bar display__flex flex__space__between"
-      key={details.id}
+      key={details._id}
     >
       <div className="tm__details display__flex">
         <h3>{details.name}</h3>
@@ -54,15 +54,15 @@ const TeamMemberBar = ({ details }) => {
       </div>
       <div className="tm__funcs display__flex">
         <button onClick={() => setEdit(true)} className="bar__button">
-          <i class="bi bi-pencil-square"></i>Edit
+          <i className="bi bi-pencil-square"></i>Edit
         </button>
         {!details.admin ? (
           <button onClick={() => deleteMemberFunc()} className="bar__button">
-            <i class="bi bi-trash"></i>Delete
+            <i className="bi bi-trash"></i>Delete
           </button>
         ) : (
           <button className="bar__button">
-            <i class="bi bi-person-badge"></i>Admin
+            <i className="bi bi-person-badge"></i>Admin
           </button>
         )}
       </div>
@@ -81,7 +81,7 @@ const TeamMemberBar = ({ details }) => {
                   setPhone(details.phone);
                 }}
               >
-                <i class="bi bi-x-lg"></i>
+                <i className="bi bi-x-lg"></i>
               </button>
             </div>
             <label className="input__label">CodeChef ID</label>

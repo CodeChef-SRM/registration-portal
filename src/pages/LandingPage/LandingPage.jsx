@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import Navbar from "../../components/Navbar/Navbar";
@@ -18,17 +18,16 @@ import Timeline from "../../components/Timeline/Timeline";
 import faqListData from "../../assets/js/FaqListData";
 import "./LandingPage.css";
 import "../Dashboard/Dashboard.css";
-import Alert from "../../components/Alert/Alert";
+import AlertContext from "../../context/Alert/AlertContext";
 
 function LandingPage() {
   const [showSignup, setSignup] = useState(true);
   function toggleShowSignup() {
     setSignup(!showSignup);
   }
-  const [showLogin, setLogin] = useState(true);
-  function toggleShowLogin() {
-    setLogin(!showLogin);
-  }
+
+  const alertContext = useContext(AlertContext);
+  const { handleAlert } = alertContext;
 
   return (
     <div className="main-div">
@@ -38,7 +37,7 @@ function LandingPage() {
       <RegisterPopup
         showSignup={showSignup}
         toggleShowSignup={toggleShowSignup}
-        setLogin={setLogin}
+        handleAlert={handleAlert}
       />
       {/* HEADING */}
 
@@ -172,7 +171,7 @@ function LandingPage() {
   );
 }
 
-const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
+const RegisterPopup = ({ showSignup, toggleShowSignup, handleAlert }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [teamname, setTeamname] = useState("");
@@ -208,15 +207,17 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
     if (json.authToken) {
       localStorage.setItem("authTokenRegCCSC", json.authToken);
       history.push("/dashboard");
+      handleAlert("Registeration Successfull!!", "success");
     } else {
       console.log("something went wrong");
-      alert("Invalid Inputs..!!");
+      handleAlert("Wrong Inputs!!", "");
     }
   };
   useEffect(() => {
     if (password === confirmPassword) {
       setUnmatch(false);
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

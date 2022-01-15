@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import NavItems from "../NavItems/NavItems";
@@ -8,6 +8,7 @@ import Heading from "../../components/Heading/Heading";
 
 import "./Navbar.css";
 import "../InputField/inputField.css";
+import AlertContext from "../../context/Alert/AlertContext";
 
 const Navbar = () => {
   const [toggle, setState] = useState(false);
@@ -27,6 +28,9 @@ const Navbar = () => {
     showNavbar();
     toggleShowSignup();
   }
+
+  const alertContext = useContext(AlertContext);
+  const { handleAlert } = alertContext;
 
   const [showSignup, setSignup] = useState(true);
   function toggleShowSignup() {
@@ -81,7 +85,11 @@ const Navbar = () => {
       </div>
 
       {/* LOGIN POPUP */}
-      <LoginPopup showLogin={showLogin} toggleShowLogin={toggleShowLogin} />
+      <LoginPopup
+        showLogin={showLogin}
+        toggleShowLogin={toggleShowLogin}
+        handleAlert={handleAlert}
+      />
 
       {/* SIGN UP */}
 
@@ -89,12 +97,13 @@ const Navbar = () => {
         showSignup={showSignup}
         toggleShowSignup={toggleShowSignup}
         setLogin={setLogin}
+        handleAlert={handleAlert}
       />
     </>
   );
 };
 
-const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
+const RegisterPopup = ({ showSignup, toggleShowSignup, handleAlert }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [teamname, setTeamname] = useState("");
@@ -126,19 +135,21 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
       }
     );
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     if (json.authToken) {
       localStorage.setItem("authTokenRegCCSC", json.authToken);
       history.push("/dashboard");
+      handleAlert("Registeration Successfull!!", "success");
     } else {
       console.log("something went wrong");
-      alert("Invalid Inputs..!!");
+      handleAlert("Wrong Inputs!!", "");
     }
   };
   useEffect(() => {
     if (password === confirmPassword) {
       setUnmatch(false);
     }
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -263,7 +274,7 @@ const RegisterPopup = ({ showSignup, toggleShowSignup }) => {
   );
 };
 
-const LoginPopup = ({ showLogin, toggleShowLogin }) => {
+const LoginPopup = ({ showLogin, toggleShowLogin, handleAlert }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -281,14 +292,15 @@ const LoginPopup = ({ showLogin, toggleShowLogin }) => {
       }
     );
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     if (json.authToken) {
       localStorage.setItem("authTokenRegCCSC", json.authToken);
       toggleShowLogin(false);
       history.push("/dashboard");
+      handleAlert("Log In Successfull!!", "success");
     } else {
       toggleShowLogin(true);
-      alert("Invalid Inputs..!!");
+      handleAlert("Wrong Credentials!!", "success");
     }
   };
   return (

@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
 import AlertContext from "../../context/Alert/AlertContext";
 import TeamContext from "../../context/Team/TeamContext";
 import UserContext from "../../context/User/UserContext";
@@ -34,6 +33,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     grabData();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -78,6 +78,7 @@ const HeaderComp = ({
     if (newPass === confPass) {
       setCompare(false);
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleChangePassword = () => {
@@ -109,13 +110,13 @@ const HeaderComp = ({
           className="header__button button__primary"
           onClick={() => signOut()}
         >
-          <i class="bi bi-box-arrow-left"></i>Sign Out
+          <i className="bi bi-box-arrow-left"></i>Sign Out
         </button>
         <button
           className="header__button button__primary"
           onClick={() => setSettings(true)}
         >
-          <i class="bi bi-gear"></i>Settings
+          <i className="bi bi-gear"></i>Settings
         </button>
       </div>
       {settings ? (
@@ -127,7 +128,7 @@ const HeaderComp = ({
                 className="close__button display__flex"
                 onClick={() => setSettings(false)}
               >
-                <i class="bi bi-x-lg"></i>
+                <i className="bi bi-x-lg"></i>
               </button>
             </div>
             <label className="input__label">Current Password</label>
@@ -274,7 +275,7 @@ const MainDash = ({ teamMembers, addMember, handleAlert }) => {
       )}
       <div className="team__members display__flex flex__flow__down display__flex__start">
         {teamMembers.map((member) => {
-          return <TeamMemberBar details={member} />;
+          return <TeamMemberBar details={member} key={member._id} />;
         })}
       </div>
       {/*Add Member modal*/}
@@ -293,7 +294,7 @@ const MainDash = ({ teamMembers, addMember, handleAlert }) => {
                   setPhone("");
                 }}
               >
-                <i class="bi bi-x-lg"></i>
+                <i className="bi bi-x-lg"></i>
               </button>
             </div>
             <label className="input__label">CodeChef ID</label>
@@ -393,7 +394,7 @@ const MainDash = ({ teamMembers, addMember, handleAlert }) => {
         onClick={() => setAddMemberPopUp(true)}
         disabled={teamMembers.length === 4 ? "disabled" : ""}
       >
-        <i class="bi bi-person-plus"></i>Add member
+        <i className="bi bi-person-plus"></i>Add member
       </button>
       <p id="warning">(button will be disabled after 4 members are added)</p>
       {teamMembers.length >= 2 ? (
