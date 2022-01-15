@@ -51,8 +51,15 @@ const TeamState = (props) => {
         console.log(json);
 
         if (json) {
-            handleAlert("Member Added successfully!!", "success");
-            getTeam();
+            console.log(json);
+            if (!json.error) {
+                handleAlert("Member Added successfully!!", "success");
+                getTeam();
+                closeLoader();
+            } else {
+                handleAlert("Something went wrong maybe you are adding a same member twice");
+                closeLoader();
+            }
         } else {
             handleAlert("Something went wrong", "");
             closeLoader();
@@ -73,8 +80,13 @@ const TeamState = (props) => {
         const json = await response.json();
         console.log(json);
         if (json) {
-            handleAlert("Member Edited successfully!!", "success");
-            getTeam();
+            if (!json.error) {
+                handleAlert("Member Edited successfully!!", "success");
+                getTeam();
+            } else {
+                handleAlert("Something went wrong while editing the member");
+                closeLoader();
+            }
         } else {
             handleAlert("Something went wrong", "");
             closeLoader();

@@ -237,6 +237,13 @@ const MainDash = ({ teamMembers, addMember, handleAlert }) => {
     useState(false);
   const [phoneVerification, setPhoneVerification] = useState(false);
 
+  const vacateFields = () => {
+    setName("");
+    setEmail("");
+    setRegistrationNumber("");
+    setPhone("");
+  };
+
   const excuteAddMember = () => {
     if (
       nameVerification ||
@@ -245,8 +252,10 @@ const MainDash = ({ teamMembers, addMember, handleAlert }) => {
       phoneVerification
     ) {
       console.log("Wrong Credentials");
+      handleAlert("Wrong Information Please add again");
     } else {
       addMember(name, registrationNumber, email, phone);
+      vacateFields("");
       setAddMemberPopUp(false);
     }
   };
