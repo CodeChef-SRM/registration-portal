@@ -166,11 +166,12 @@ const RegisterPopup = ({
         <div className="regForm-top">
           <div className="reg-form-right">
             <Heading text="Register for the event" />
-            <p className="info">(Only Team Leader should register)</p>
+            <h3>(Only Team Leader should register)</h3>
           </div>
           <GrClose onClick={toggleShowSignup} className="close-icon" />
         </div>
         <div>
+          <label className="input__label">CodeChef Id</label>
           <input
             className="edit__input"
             placeholder="Enter your Codechef ID"
@@ -185,6 +186,7 @@ const RegisterPopup = ({
               setName(e.target.value);
             }}
           ></input>
+          <label className="input__label">Email (srmist.edu.in)</label>
           <input
             className="edit__input"
             placeholder="Enter your E mail (srmist.edu.in)"
@@ -192,6 +194,7 @@ const RegisterPopup = ({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
+          <label className="input__label">Team name</label>
           <input
             className="edit__input"
             placeholder="Enter your Team Name"
@@ -206,6 +209,7 @@ const RegisterPopup = ({
               setTeamname(e.target.value);
             }}
           ></input>
+          <label className="input__label">Phone Number</label>
           <input
             className="edit__input"
             placeholder="Enter your Phone No."
@@ -220,6 +224,9 @@ const RegisterPopup = ({
               setPhone(e.target.value);
             }}
           ></input>
+          <label className="input__label">
+            Registration Number (Eg :RAXXXXXXXXXXXXX)
+          </label>
           <input
             className="edit__input"
             placeholder="Enter your Registeration No. (RA...)"
@@ -234,6 +241,7 @@ const RegisterPopup = ({
               setRegisternumber(e.target.value);
             }}
           ></input>
+          <label className="input__label">Password</label>
           <input
             className="edit__input"
             placeholder="Enter Password"
@@ -248,6 +256,7 @@ const RegisterPopup = ({
               setPassword(e.target.value);
             }}
           ></input>
+          <label className="input__label">Confirm Password</label>
           <input
             className="edit__input"
             placeholder="Confirm Password"
@@ -318,6 +327,7 @@ const LoginPopup = ({ showLogin, toggleShowLogin, handleAlert }) => {
           <Heading text="Enter credentials to login"></Heading>
           <GrClose onClick={toggleShowLogin} className="close-icon" />
         </div>
+        <label className="input__label">Email (srmist.edu.in)</label>
         <input
           className="inputField-div"
           placeholder="Enter your E mail (srmist.edu.in)"
@@ -325,6 +335,7 @@ const LoginPopup = ({ showLogin, toggleShowLogin, handleAlert }) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         ></input>
+        <label className="input__label">Password</label>
         <input
           className="inputField-div"
           placeholder="Enter your Password"
